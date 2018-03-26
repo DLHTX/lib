@@ -1,0 +1,70 @@
+*{
+  text-decoration: none;
+  list-style: none;
+  margin:0;
+  padding:0;
+  user-select: none;
+}
+html,body{
+  height: 100%;
+  position: relative;
+  //overflow-x: hidden;
+  //overflow-y: hidden;
+
+}
+a{
+  out-line: none;
+  color:#fff;
+}
+.background img{
+  z-index: -1;
+  position: absolute;
+  left: 0;
+  top:0;
+  right: 0;
+  bottom:0;
+  height: 100%;
+  width: 100%;
+}
+.background2 img{
+  z-index: -1;
+  position: absolute;
+  left: 0;
+  top:100%;
+  right: 0;
+  bottom:0;
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+}
+.opacity{
+  opacity: 1;
+}
+.icon-down{
+  position:fixed;
+  left: 50%;
+  transform:translateX(-50%);
+  top:95%;
+  color:white;
+  font-size:3vh !important;
+  transition:all .3s;
+  transform-origin:50% 50%;//中心旋转
+  &:hover{
+    color: red;
+    transition:all .3s;
+  }
+}
+.icon-shang{
+  position:fixed;
+  left: 50%;
+  transform:translateX(-50%);
+  top:95%;
+  color:white;
+  font-size:3vh !important;
+  transition:all .3s;
+  transform-origin:50% 50%;//中心旋转
+  &:hover{
+    color: red;
+    transition:all .3s;
+  }
+}

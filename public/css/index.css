@@ -1,0 +1,184 @@
+* {
+  text-decoration: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+html,
+body {
+  height: 100%;
+  position: relative;
+}
+a {
+  out-line: none;
+  color: #fff;
+}
+.background img {
+  z-index: -1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+}
+.background2 img {
+  z-index: -1;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+}
+.opacity {
+  opacity: 1;
+}
+.icon-down {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 95%;
+  color: white;
+  font-size: 3vh !important;
+  transition: all .3s;
+  transform-origin: 50% 50%;
+}
+.icon-down:hover {
+  color: red;
+  transition: all .3s;
+}
+.icon-shang {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 95%;
+  color: white;
+  font-size: 3vh !important;
+  transition: all .3s;
+  transform-origin: 50% 50%;
+}
+.icon-shang:hover {
+  color: red;
+  transition: all .3s;
+}
+nav {
+  height: 8vh;
+  background-color: #333;
+  line-heigh: 10vh;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: fixed;
+  width: 100%;
+}
+.navBox {
+  float: left;
+}
+.navBox div {
+  float: left;
+  height: 8vh;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 0 5vh;
+  transition: all .3s;
+  cursor: pointer;
+}
+.navBox div:hover {
+  color: white;
+  transition: all .3s;
+  background-color: #ff5050;
+}
+.userBox {
+  float: right;
+}
+.userBox div {
+  float: left;
+  padding: 0 3vh;
+  height: 8vh;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.userBox div:hover {
+  color: white;
+  transition: all .3s;
+  background-color: #ff5050;
+}
+.section-search .search {
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  transform: translateX(-50%);
+}
+.section-search .search .search-content {
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 50vh;
+  height: 5vh;
+  outline: none;
+  font-size: 2vh;
+}
+.section-search .search .searchBtn {
+  color: white;
+  border-radius: 5px;
+  height: 5vh;
+  width: 7vh;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-left: 1vh;
+  background-color: #333333;
+  transition: all .3s;
+  float: right;
+}
+.section-search .search .searchBtn:hover {
+  background-color: #ff5050;
+  transition: all .3s;
+}
+.section-search .logo {
+  position: absolute;
+  left: 50%;
+  top: 75%;
+  color: white;
+  transform: translateX(-50%);
+  font-size: 3vh !important;
+}
+.section-search .logo1 {
+  position: absolute;
+  left: 50%;
+  top: 80%;
+  color: white;
+  transform: translateX(-50%);
+  font-size: 2vh;
+}
+.section-carousel {
+  position: absolute;
+  left: 0;
+  top: 100%;
+}
+.section-carousel .carouselBox {
+  position: absolute;
+  left: 50%;
+  top: 30%;
+}
