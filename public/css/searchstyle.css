@@ -1,0 +1,20 @@
+body {
+  color: red;
+}
+#content #searchBox {
+  width: 50vh;
+  height: 18vh;
+  margin: 10px auto;
+  border: 1px solid red;
+}
+#content #searchBox img {
+  float: left;
+}
+#content #searchBox .detail {
+  padding-left: 60px;
+}
+.clearfix {
+  content: "";
+  display: block;
+  clear: both;
+}

@@ -110,9 +110,6 @@ carousel.prototype = {
     },
 
 
-
-
 }
 
-
-module.export = carousel()
+module.exports = carousel()

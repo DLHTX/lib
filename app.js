@@ -7,7 +7,11 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var search = require('./routes/search');
+var auth = require('./routes/auth')
 
+var session = require('express-session');
+var passport = require('passport');
 var app = express();
 
 // view engine setup
@@ -22,8 +26,19 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(session({secret: 'sessionsecret'}));//secret是设置在cookie里的sessionkey
+app.use(passport.initialize());
+app.use(passport.session());//必须放到auth之前
+
+
+
+
 app.use('/', index);
+app.use('/auth',auth);//第三方认证接口
 app.use('/users', users);
+app.use('/search', search);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

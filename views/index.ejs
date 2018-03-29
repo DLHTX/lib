@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title></title>
     <link rel='stylesheet' href='/css/index.css' />
     <link rel="stylesheet" href="//at.alicdn.com/t/font_581626_3qtlmdincjq93sor.css">
     <link rel="stylesheet" href="//at.alicdn.com/t/font_560878_h4a2zlz0snqoxbt9.css">
@@ -17,7 +17,34 @@
 
 
 
-   <nav>
+  <!--注册登陆-->
+
+
+    <!--    <div class="registerBox">
+            <input type="text" id="username"/>Username
+            <input type="text" id="password"/>password
+        </div>
+        <button class="register-btn">注册</button>
+
+
+          <div class="loginBox">
+              <input type="text" id="logusername"/>Username
+              <input type="text" id="logpassword"/>password
+          </div>
+          <button class="login-btn">登陆</button> <button ><a href="/auth/logout">注销</a></button>
+
+
+-->
+
+  <div class="searchbili">
+      <input class='bli' type="text"/>
+      <button class="biliBtn">搜索</button>
+  </div>
+
+
+
+
+  <nav>
      <div class="navBox">
        <div><a href="#">首页</a></div>
        <div><a href="#">服务</a></div>
@@ -25,11 +52,24 @@
        <div><a href="#">关于我们</a></div>
      </div>
      <div class="userBox">
-       <div class="login"><a href="">登录</a></div>
-       <div class="register"><a href="">注册</a></div>
-       <div class="github"><a href="">Github登录</a></div>
+
+         <% if(isLogin){%>
+         <div class="loginBtn">你好</div>
+         <div class="registerBtn"><%=user.username %></div>
+         <div class="github"><a href=/auth/logout>注销</a></div>
+         <div class="github editpassword"><a href=/auth/log>修改密码</a></div>
+
+         <%}else{ %>
+         <div class="loginBtn"><a href=/auth/log>登录</a></div>
+         <div class="registerBtn"><a href=/auth/log>注册</a></div>
+         <div class="github"><a href="">Github登录</a></div>
+         <% }%>
+
      </div>
    </nav>
+
+
+
 
   <section class="section-search">
       <div class="search ">
@@ -43,29 +83,7 @@
 
   </section>
 
-  <!--<section class="section-carousel">-->
-      <!--<div class="carouselBox">-->
-          <!--<div class="carousel">-->
-            <!--<ul class="clearfix">-->
-              <!--<li><img src="./images/1.jpg" alt=""></li>-->
-              <!--<li><img src="./images/2.jpg" alt=""></li>-->
-              <!--<li><img src="3.jpg" alt=""></li>-->
-              <!--<li><img src="4.jpg" alt=""></li>-->
-            <!--</ul>-->
-            <!--<div class="btn">-->
-              <!--<span class="iconfont icon-next"></span>-->
-              <!--<span class="iconfont icon-last"></span>-->
-            <!--</div>-->
-            <!--<div class="dots">-->
-              <!--<span class="dot iconfont icon-yuan green"></span>-->
-              <!--<span class="dot iconfont icon-yuan"></span>-->
-              <!--<span class="dot iconfont icon-yuan"></span>-->
-              <!--<span class="dot iconfont icon-yuan"></span>-->
-            <!--</div>-->
 
-          <!--</div>-->
-      <!--</div>-->
-  <!--</section>-->
 
 
   <script src="/js/index.js"></script>

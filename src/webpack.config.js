@@ -5,10 +5,16 @@ var autoprefixer = require('autoprefixer')
 
 
 module.exports = {
-    entry: path.join(__dirname,'js/app/index.js'),
+    entry: {
+          index: path.join(__dirname, 'js/app/index.js'),
+          search: path.join(__dirname, 'js/app/search.js'),
+          searchstyle:path.join(__dirname, 'less/search/search.less')//less文件的第二入口
+
+       },
+
     output: {
         path: path.join(__dirname,'../public/js'),
-        filename: 'index.js'
+        filename: '[name].js'
     },
     module:{
         rules: [
@@ -31,7 +37,7 @@ module.exports = {
         new webpack.ProvidePlugin({
             $: "jquery"
         }) ,
-        new ExtractTextPlugin("../css/index.css"),
+        new ExtractTextPlugin("../css/[name].css"),//less文件的出口
         new webpack.LoaderOptionsPlugin({
             options: {
                 postcss: [
