@@ -12,6 +12,7 @@ html,
 body {
   height: 100%;
   position: relative;
+  overflow: hidden;
 }
 a {
   out-line: none;
@@ -79,6 +80,7 @@ nav {
   user-select: none;
   position: fixed;
   width: 100%;
+  z-index: 1;
 }
 .navBox {
   float: left;
@@ -121,6 +123,10 @@ nav {
   color: white;
   transition: all .3s;
   background-color: #ff5050;
+}
+.section-search {
+  background-color: #008bcb;
+  height: 100vh;
 }
 .section-search .search {
   position: absolute;
@@ -174,15 +180,60 @@ nav {
   transform: translateX(-50%);
   font-size: 2vh;
 }
-.section-carousel {
-  position: absolute;
-  left: 0;
-  top: 100%;
+.section-detail {
+  height: 100vh;
+  background-color: cornflowerblue;
 }
-.section-carousel .carouselBox {
-  position: absolute;
-  left: 50%;
-  top: 30%;
+#section2 {
+  background-color: #00ba8e;
+}
+#container,
+.sections,
+.section {
+  /*必须，兼容，在浏览器不支持transform属性时，通过改变top/left完成滑动动画*/
+  position: relative;
+  /*必须，关系到单个page能否全屏显示*/
+  height: 100%;
+}
+/*.section {
+  !*有背景图时必须，关系到背景图能够全屏显示*!
+ !* background-color: #000;*!
+  background-size: cover;
+  background-position: 50% 50%;
+}*/
+/*非必需，只是用来设置背景图，id不会被插件用到*/
+/*#section0 {
+  background-image: url(img/img1.jpg);
+}
+#section1 {
+  background-image: url(img/img2.jpg);
+}
+#section2 {
+  background-image: url(img/img3.jpg);
+}
+#section3 {
+  background-image: url(img/img4.jpg);
+}*/
+/*以下样式用来设置slider样式，可自行修改*/
+.pages {
+  position: fixed;
+  right: 10px;
+  top: 50%;
+  list-style: none;
+}
+.pages li {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+  margin: 15px 0 0 7px;
+}
+.pages li.active {
+  margin-left: 0;
+  width: 14px;
+  height: 14px;
+  border: 4px solid #FFFFFF;
+  background: none;
 }
 .toast {
   position: fixed;
@@ -195,4 +246,5 @@ nav {
   padding: 5px 10px;
   box-shadow: 0 0 80px 2px rgba(0, 250, 154, 0.3);
   display: block;
+  z-index: 2;
 }

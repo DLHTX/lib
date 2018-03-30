@@ -29,7 +29,7 @@ var User = sequelize.define('userinfo',{
     },*/
     username: Sequelize.STRING,//用户名
     password: Sequelize.STRING,//密码 字符串
-    /*role: Sequelize.INTEGER,//权限 整数*/
+    love:Sequelize.STRING
 },{freezeTableName: true,timestamps: false});
 //模型创建
 //timestamp字段表示数据库中是否会自动更新createdAt和updatedAt字段，
@@ -39,7 +39,9 @@ var User = sequelize.define('userinfo',{
 
 //User.create({username:"dhtyx", password:"123456", role:0})
 // username role password对应相应的字段名
-//User.sync({force:true})
+
+/*User.sync({force:true})*/
+
 User.findAll({raw: true}).then(function(articles) {
     console.log(articles)
 })

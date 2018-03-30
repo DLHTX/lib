@@ -12,16 +12,21 @@ var $ = require('../lib/jquery');
 var book = require('../mod/book').book;
 var Toast = require('../mod/toast').Toast
 
+
 //
 // new carousel($('.carousel'))
 
 new book();
 
-$('.icon-down').on('click',function () {
-    var t = $(window).scrollTop();
-    var height =  $('.background img').height();
-    $('body,html').animate({'scrollTop':t+height},500);
-});
+
+$.post('/auth/getbook').done(function(ret){
+    if(ret.status === 0){
+        Toast('检索成功!');
+        console.log(ret)
+    } else if (ret.status === 1){
+        Toast('用户名或密码不正确')
+    }
+})
 
 
 
@@ -93,24 +98,38 @@ $('.editpassword-btn').on('click',function(){
 })
 
 
+$('.getlove').on('click',function(){
+    $.post('auth/getlove').done(function(ret){
+        if(ret.status === 0){
+            ret.data.forEach(function(data){
+                $.ajax({
+                    url:'https://api.douban.com/v2/book/'+data.love,
+                    type:'GET',
+                    dataType:'jsonp'
+                }).done(function(ret){
+                    console.log(ret)
+                    $('#container').XSwitch({
+                        index: 0
+                    });
+
+                })
 
 
-// $(window).on('scroll',function () {
-//
-//     if ($(document).height()  <= $(window).height() + $(window).scrollTop() ) {
-//
-//       $('.pagebtn').removeClass('icon-down').addClass('icon-shang')
-//
-//     }else{
-//         $('.pagebtn').removeClass('icon-shang').addClass('icon-down')
-//
-//
-//     }
-//
-// })
+            })
 
 
 
+            Toast('查询成功')
+        } else if (ret.status === 1){
+            Toast('不成功')
+        }
+    })
+})
+
+
+//bilibili搜索并且发送ajax
+
+/*
 $('.biliBtn').on('click',() => {
     let word = $('.bili').val()
     let keyword = urlencode(word,'utf-8')
@@ -119,7 +138,7 @@ $('.biliBtn').on('click',() => {
 
 
 function getVideo(keyword){
-/*    let biliUrl = 'https://search.bilibili.com/api/search?s'+
+/!*    let biliUrl = 'https://search.bilibili.com/api/search?s'+
         'earch_type=all&keyword='+keyword+'&from_source=banner_search'
     http.get(biliUrl, (res) => {
         var data = '';  //接口数据
@@ -133,7 +152,7 @@ function getVideo(keyword){
     })
 }).on('error', () =>
     console.log('获取数据出错!')
-);*/
+);*!/
 $.ajax({
     url:'https://search.bilibili.com/api/search?search_type=all&keyword='+keyword+'&from_source=banner_search&page=1',
     type:'GET',
@@ -141,5 +160,12 @@ $.ajax({
 }).done(function(rey){
     console.log(rey.result.video)
 })
-
 }
+*/
+
+
+
+
+
+
+

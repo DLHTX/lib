@@ -30,7 +30,7 @@ book.prototype = {
     },
     search:function(){
         if(this.searchContent ){
-            $(location).attr('href', 'http://localhost:3000/search?q='+this.searchContent)
+            $(location).attr('href', 'http://localhost:3000/auth/search?q='+this.searchContent)
         }else{
             Toast('输入值不能为空')
         }

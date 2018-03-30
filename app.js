@@ -7,19 +7,21 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-var search = require('./routes/search');
 var auth = require('./routes/auth')
 
 var session = require('express-session');
 var passport = require('passport');
 var app = express();
 
+var cors = require('cors')
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -31,12 +33,9 @@ app.use(passport.initialize());
 app.use(passport.session());//必须放到auth之前
 
 
-
-
 app.use('/', index);
 app.use('/auth',auth);//第三方认证接口
 app.use('/users', users);
-app.use('/search', search);
 
 
 

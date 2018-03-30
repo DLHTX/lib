@@ -7,12 +7,7 @@
     <link rel="stylesheet" href="//at.alicdn.com/t/font_560878_h4a2zlz0snqoxbt9.css">
   </head>
   <body>
-  <div class="background">
-    <img src="./images/1.jpg" alt="">
-  </div>
-  <div class="background2">
-    <img src="./images/2.jpg" alt="">
-  </div>
+
   <span class="pagebtn iconfont icon-down"></span>
 
 
@@ -36,10 +31,12 @@
 
 -->
 
+<!--
   <div class="searchbili">
       <input class='bli' type="text"/>
       <button class="biliBtn">搜索</button>
   </div>
+-->
 
 
 
@@ -58,7 +55,7 @@
          <div class="registerBtn"><%=user.username %></div>
          <div class="github"><a href=/auth/logout>注销</a></div>
          <div class="github editpassword"><a href=/auth/log>修改密码</a></div>
-
+         <div class="github getlove">我的收藏</div>
          <%}else{ %>
          <div class="loginBtn"><a href=/auth/log>登录</a></div>
          <div class="registerBtn"><a href=/auth/log>注册</a></div>
@@ -70,8 +67,10 @@
 
 
 
+<div  id="container" data-XSwitch>
+<div class="sections">
 
-  <section class="section-search">
+  <section class="section section-search"  id="section0">
       <div class="search ">
         <input type="text" class="search-content">
         <span class="searchBtn">搜索</span>
@@ -80,12 +79,23 @@
         数字图书馆
       </div>
     <div class="logo1">DIGITAL LIBRARY</div>
+  </section>
+
+
+  <section class="section section-detail"  id="section1">
+
+  </section>
+
+  <section class="section"  id="section2">
 
   </section>
 
 
 
-
+</div>
+</div>
   <script src="/js/index.js"></script>
+  <script src="/js/jquery-1.12.3.min.js"></script>
+  <script src="/js/XSwitch.js"></script>
   </body>
 </html>

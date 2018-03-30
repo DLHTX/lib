@@ -1,7 +1,6 @@
 var $ = require('../lib/jquery');
-var Event = require('../mod/event')
-
-console.log('aaaaaaa')
+var Event = require('../mod/event');
+var Toast = require('../mod/toast').Toast
 
 function getRequest() {
     var url = window.location.search; //url传参
@@ -15,10 +14,14 @@ function getRequest() {
     }
     return theRequest;
 }
+var req = getRequest();
+if(req.q === undefined){
+    console.log('no search')
+}else{
+    getbook()
+}
 
-var req = getRequest()
-console.log(req.q)
-getbook()
+
 
 
 function getbook(){
@@ -36,6 +39,7 @@ function getbook(){
 }
 
 function setbook(ret){
+
      ret.forEach(function(book){
                  var tpl  = `<span id="searchBox" class = "clearfix">
                             <a href="#"><img src="https://img1.doubanio.com/mpic/s4293097.jpg" alt=""></a>
@@ -45,20 +49,35 @@ function setbook(ret){
                                 <div class="pubdate"></div>
                                 <div class="publisher"></div>
                                 <div class="isbn"></div>
-                                <div class="price"></div>
+                                <div class="price"></div>                      
                             </span>
+                               <button class="love" data-id="">加入收藏</button>     
                          </span>
                          `
                  this.$book = $(tpl)
-                 this.$book.find('a').attr('href',book.alt)
-                 this.$book.find('img').attr('src',book.image)
-                 this.$book.find('.name').text('书名:'+ book.title)
-                 this.$book.find('.author').text('作者:'+ book.author[0])
-                 this.$book.find('.pubdate').text('出版社:'+ book.pubdate)
-                 this.$book.find('.publisher').text( '出版时间:'+ book.publisher)
-                 this.$book.find('.isbn').text('ISBN:'+  book.isbn13)
-                 this.$book.find('.price').text( '价格:'+ book.price)
-         $('#content').append($book)
+                 this.$book.find('a').attr('href',book.alt);
+                 this.$book.find('img').attr('src',book.image);
+                 this.$book.find('.name').text('书名:'+ book.title);
+                 this.$book.find('.author').text('作者:'+ book.author[0]);
+                 this.$book.find('.pubdate').text('出版社:'+ book.pubdate);
+                 this.$book.find('.publisher').text( '出版时间:'+ book.publisher);
+                 this.$book.find('.isbn').text('ISBN:'+  book.isbn13);
+                 this.$book.find('.price').text( '价格:'+ book.price);
+                 this.$book.find('.love').attr('data-id',book.id);
+                 this.id =  book.id;
+                  $('#content').append($book);
      })
+
+    $('.love').on('click',function(){
+      $.post('/auth/love',{id:$(this).attr('data-id')}).done(function(ret){
+          if(ret.status === 0){
+              Toast('添加成功');
+          }else{
+              Toast('请先登陆');
+          }
+      })
+    })
+
+
 
 }
