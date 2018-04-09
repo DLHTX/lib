@@ -1,71 +1,1905 @@
+
+/*内容超出显示省略号-----------------------------------------page1*/
 *{
-  text-decoration: none;
-  list-style: none;
-  margin:0;
-  padding:0;
-  user-select: none;
+  font-family:'Bebas'
 }
-html,body{
-  height: 100%;
-  position: relative;
-  overflow:hidden;
-  //overflow-x: hidden;
-  //overflow-y: hidden;
+.hide {
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section{
+  background: url("http://cn.bing.com/az/hprichbg/rb/SevenMagicMountains_ZH-CN9207394593_1920x1080.jpg" ) center center repeat;
+  background-size:cover;
+  height:100vh;
+  position:relative;
 
 }
-a{
-  out-line: none;
-  color:#fff;
+#section1 .container {
+  height:100%;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  flex-direction: column;
 }
-.background img{
-  z-index: -1;
+.container,
+.search-group,
+.shumum,
+.search-group,
+.searchBtn,
+.timing,
+.search-box {
+  display: flex;
+}
+
+
+
+/*输入框*/
+.search-box {
+
+}
+
+.search-box input {
+  outline:none!important;
+  border:none;
+  border-radius:8vh;
+  background-color:white;
+  height:5vh;
+  width:36vh;
+  padding-left:1vh;
+  font-size:2vh;
+  font-family:'Regencie';
+  position:relative;
+}
+
+
+.search-group {
+  position: absolute;
+  top:45%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+#section1  .icon-next{
+  position:absolute;
+  top:45%;
+  left:85%;
+  transform:translate(-50%,-50%);
+}
+#section1 .icon-pre{
+  position:absolute;
+  transform:translate(-50%,-50%);
+  top:45%;
+  left:15%;
+}
+#section1 .iconfont{
+  font-size:8vh;
+  color:white;
+  transition:all .3s;
+  cursor:pointer;
+}
+#section1 .iconfont:hover{
+  color:rgb(66,171,158);
+  transition:all .3s;
+}
+
+
+
+/*检索按钮*/
+.searchBtn  {
+  position:absolute;
+  height:5vh;
+  width:5vh;
+  border-radius:8vh;
+  left:88%;
+  top:0;
+  background-color:rgb(73,197,182);
+  cursor:pointer;
+  transition:all .3s;
+}
+.searchBtn:hover{
+  background-color:rgb(	220,20,60);
+  transition:all .3s;
+}
+
+
+
+
+.news-box {
+  height:5vh;
+  width:40vw;
+  position:absolute;
+  top:55%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  min-width: 280px;
+}
+.news-box ul li a{
+  line-height:5vh;
+  font-size: 14px;
+}
+
+
+/*新闻轮播*/
+.news-box {
+  overflow: hidden;
+  border-bottom: 1px solid white;
+  align-content:center;
+}
+#news-ul {
+  text-align: center;
+  position: relative;
+}
+.news-box li {
+  padding: 0 0 0 5px;
+  color: #ff5b95;
+  overflow: hidden;
+  list-style: square;
+  white-space: nowrap; /*设置内容不换行；*/
+  text-overflow: ellipsis; /*设置超出内容为省略号*/
+}
+.news-box a {
+  color: whitesmoke;
+}
+
+
+
+
+@media screen and (min-width: 768px) {
+  /*导航*/
+
+  .navbar {
+    height:7vh;
+  }
+  .navbar .nav a {
+    font-size: 1.3vw;
+  }
+  .head .sign-up,.head .login {
+    width:5vw;
+    height:4.5vh;
+    font-size: 1vw;
+  }
+
+  .shrink {
+    display:none;
+  }
+
+  .shrink-nav {
+    display: none;
+
+  }
+
+  body,html,a,div,span {
+    font-size: 1vw;
+    max-font-size: 16px;
+  }
+
+
+
+
+
+
+
+
+  /*page2  */
+  #section2 .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  #wrapper {
+    height:300px;
+    width:980px;
+    position: relative;
+    top:-60px;
+    border-radius: 14px;
+  }
+
+  #wrapper ul li {
+    width:980px;
+    height:300px;
+  }
+  #slider {
+    width:980px;
+    height:300px;
+  }
+  /*BTN*/
+
+
+  #next{right:-50px; border-radius:7px 0px 0px 7px;}
+  #previous{left:-50px; border-radius:0px 7px 7px 7px;}
+  #counter{
+    font-size: 25px;
+  }
+
+  #wrapper.active #next{right:0px;}
+  #wrapper.active #previous{left:0px;}
+
+
+  /*bar*/
+  #pagination-wrap{
+    min-width:20px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+    height:15px;
+    position:absolute;
+    text-align:center;
+  }
+
+  #pagination-wrap ul {
+    width:100%;
+  }
+
+  #pagination-wrap ul li{
+    margin: 0 8px;
+    display: inline-block;
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#ffffff;
+    opacity:0.5;
+    position:relative;
+    top:0;
+    left: 300px;
+  }
+  #pagination-wrap ul li.active{
+    width:15px;
+    height:15px;
+    top:-3px;
+    opacity:1;
+    box-shadow:rgba(0,0,0,0.1) 1px 1px 0px;
+  }
+
+
+  /*news-group*/
+  .news-group {
+    height:230px;
+    width:980px;
+    margin-top: -40px;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: white;
+    padding: 8px 12px;
+  }
+  .news-group-header {
+    widht:100%;
+    height:45px;
+    line-height: 45px;
+    display: flex;
+    flex-direction: row;
+    padding-left: 25px;
+    background-color: #f3f4fa;
+    position: relative;
+  }
+  .news-group-header span {
+    height:100%;
+    width:90px;
+    justify-self: flex-start;
+    margin-right: 10px;
+    text-align: center;
+    font-size: 20px;
+    display: inline-block;
+    color: #000000;
+    cursor: pointer;
+  }
+  .news-group-header span.active {
+    color:#5766e5;
+    pointer-events: none;
+    cursor: default;
+    border-bottom: #5766e5 4px solid;
+  }
+  .news-group-header a {
+    height:100%;
+    width:70px;
+    justify-self:flex-end;
+    font-size:16px;
+    color: #919191;
+    position: absolute;
+    right:30px;
+  }
+  .news-group-list {
+    width:100%;
+    height:165px;
+    padding: 15px;
+  }
+  .news-group-list div {
+    height:100%;
+    width:100%;
+  }
+  .news-group-list div ul {
+    height:100%;
+    width:100%;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+  }
+  .news-group-list li {
+    width:22%;
+    height:40px;
+    color:black;
+    overflow: hidden;
+    margin-right: 25px;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+  }
+  .news-group-list li a {
+    line-height: 40px;
+    color: black;
+    font-size: 16px;
+  }
+  .news-group-list li a:before {
+    content: " ";
+    display: inline-block;
+    height:10px;
+    width:6px;
+    margin-right: 4px;
+    background-color: #00aeef;
+  }
+
+
+}
+
+
+
+/*手机端*/
+@media screen and (max-width:768px) {
+  /*导航*/
+  .navbar .nav {
+    display:none!important;
+  }
+  .navbar .nav a {
+    font-size: 1em;
+  }
+  .navbar {
+    height: 45px;
+    width: 100%;
+  }
+  .right {
+    display: flex;
+  }
+  .shrink {
+    display: flex;
+  }
+  .head button {
+    width: 50px;
+    height: 24px;
+    margin-left: 0px;
+    border-radius: 4px;
+    font-size: 12px;
+  }
+  .head {
+    padding: 0 0px;
+  }
+
+  .right {
+    height: 45px;
+  }
+  .shrink-nav-box {
+    width: 100%;
+  }
+  .shrink-nav {
+    position: fixed;
+    top: 45px;
+    left: 0px;
+    width: 100%;
+    display: none;
+    padding-top: 10px;
+    padding-bottom: 25px;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .shrink-nav a {
+    display: inline-block;
+    line-height: 50px;
+    text-decoration: none;
+    width: 80%;
+    margin-left: 10%;
+    color: white!important;
+    border-bottom: solid 1px rgba(255, 255, 255, 0.3);
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    font-weight: 300;
+  }
+
+  .shrink-nav a:hover {
+    color:red!important;
+    border-bottom: solid 1px rgb(66,171,158);
+  }
+
+  .shrink-nav a {
+    -webkit-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-name: returnToNormal;
+    animation-name: returnToNormal;
+  }
+
+  @-webkit-keyframes returnToNormal {
+    0% {
+      opacity: 0;
+      -webkit-transform: translate3d(0, -100%, 0);
+      transform: translate3d(0, -100%, 0);
+    }
+
+    100% {
+      opacity: 1;
+      -webkit-transform: none;
+      transform: none;
+    }
+  }
+
+  @keyframes returnToNormal {
+    0% {
+      opacity: 0;
+      -webkit-transform: translate3d(0, -100%, 0);
+      transform: translate3d(0, -100%, 0);
+    }
+
+    100% {
+      opacity: 1;
+      -webkit-transform: none;
+      transform: none;
+    }
+  }
+
+
+
+
+  body,html,a,div,span {
+    font-size: 14px;
+  }
+
+
+
+  #section1  .icon-next{
+    position:absolute;
+    top:85%;
+    left:65%;
+    transform:translate(-50%,-50%);
+  }
+  #section1 .icon-pre{
+    position:absolute;
+    transform:translate(-50%,-50%);
+    top:85%;
+    left:35%;
+  }
+  #section1 .iconfont{
+    font-size:8vh;
+    color:white;
+    transition:all .3s;
+    cursor:pointer;
+  }
+
+
+
+
+
+  /*page1   结束*/
+
+
+
+
+
+  /*page2*/
+
+  #section2 .container {
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    align-items: center;
+    top:40px;
+
+  }
+
+  /*轮播  开始*/
+  #wrapper {
+    height:164px;
+    width:290px;
+    border-radius: 8px;
+    min-height: 150px;
+    margin-bottom: 20px;
+  }
+  #slider li img {
+    height:164px;
+    width:290px;
+  }
+
+
+  /*btn */
+  #next{ display: none}
+  #previous{display: none}
+
+  #counter{
+    font-size: 16px;
+  }
+
+  /*项目导航*/
+  #pagination-wrap{
+    min-width:20px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10px;
+    height:15px;
+    position:absolute;
+    text-align:center;
+  }
+
+  #pagination-wrap ul {
+    width:100%;
+  }
+
+  #pagination-wrap ul li{
+    margin: 0 4px;
+    display: inline-block;
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#ffffff;
+    opacity:0.5;
+    position:relative;
+    top:5px;
+    left: 80px;
+  }
+  #pagination-wrap ul li.active {
+    width: 12px;
+    height: 12px;
+    top: 2px;
+    opacity: 1;
+    box-shadow:rgba(0,0,0,0.1) 1px 1px 0px;
+  }
+
+  /*轮播   结束*/
+
+
+
+  /*news-group*/
+  .news-group {
+    height:180px;
+    width:290px;
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: white;
+    padding: 8px 12px;
+  }
+  .news-group-header{
+    widht:100%;
+    height:30px;
+    line-height: 30px;
+    display: flex;
+    position: relative;
+    padding-left: 10px;
+    background-color: #ffffff;
+  }
+  .news-group-header span {
+    height:100%;
+    width:50px;
+    font-size: 12px;
+    margin-right: 10px;
+    cursor: pointer;
+    background-color: whitesmoke;
+    display: inline-block;
+    color: #ccc;
+  }
+  .news-group-header span.active {
+    color:#5766e5;
+    border-bottom: #5766e5 2px solid;
+  }
+  .news-group-header a {
+    justify-self:flex-end;
+    font-size: 12px;
+    color: #ccc;
+    position: absolute;
+    right:15px;
+  }
+  .news-group-list {
+    width:100%;
+    height:135px;
+    padding:15px;
+  }
+  .news-group-list div {
+    height:100%;
+    width:100%;
+  }
+  .news-group-list div ul {
+    height:100%;
+    width:100%;
+    flex-wrap: wrap;
+    display: flex;
+
+  }
+  .news-group-list li {
+    width:50%;
+    height:40px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    color:black;
+  }
+  .news-group-list li a {
+    line-height: 40px;
+    color:black;
+  }
+  .news-group-list li a:before {
+    content: " ";
+    display: inline-block;
+    height:6px;
+    width:4px;
+    margin-right: 4px;
+    background-color: #00aeef;
+  }
+}
+
+/*flex样式*/
+.flex-x {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.flex-x-rev{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+}
+.flex-y {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.flex-y-rev {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+}
+
+/*page2*/
+#section2 .container {
+  height:100%;
+  position: relative;
+}
+
+#wrapper {
+  overflow: hidden;
+  position: relative;
+
+}
+
+#slider {
   position: absolute;
   left: 0;
   top:0;
-  right: 0;
-  bottom:0;
-  height: 100%;
-  width: 100%;
 }
-.background2 img{
-  z-index: -1;
+
+#wrapper ul li {
+  float: left;
+  position: relative;
+}
+#slider .header {
   position: absolute;
-  left: 0;
-  top:100%;
-  right: 0;
-  bottom:0;
+  bottom:0px;
+  width:100%;
+  height:20%;
+  background-color: rgba(132, 132, 132, 0.67);
+}
+
+/*BTN*/
+.btns{
+  position:absolute;
+  width:50px;
+  height:60px;
+  top:50%;
+  margin-top:-25px;
+  line-height:57px;
+  text-align:center;
+  cursor:pointer;
+  background:rgba(0,0,0,0.1);
+  z-index:90;
+
+  /*禁止选择文本*/
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -ms-user-select: none;
+  /*时间函数(transition-timing-function)：
+
+       ease：逐渐慢下来，函数等同于贝塞尔曲线(0.25, 0.1, 0.25, 1.0).
+
+       linear：线性过度,函数等同于贝塞尔曲线(0.0, 0.0, 1.0, 1.0).
+
+       ease-in：由慢到快,函数等同于贝塞尔曲线(0.42, 0, 1.0, 1.0).
+
+       ease-out：由快到慢, 函数等同于贝塞尔曲线(0, 0, 0.58, 1.0).
+
+       ease-in-out：由慢到快在到慢, 函数等同于贝塞尔曲线(0.42, 0, 0.58, 1.0)
+
+       cubic-bezier：特定的cubic-bezier曲线。 (x1, y1, x2, y2)四个值特定于曲线上点P1和点P2。所有值需在[0, 1]区域内，否则无效。
+延迟时间(transition-delay)：在动作和变换开始之间等待多久，通常用秒来表示(比如, .1s)。如果你不想延迟，该值可省略。*/
+  -webkit-transition: all 0.3s  ease;
+  -moz-transition: all 0.3s  ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+btns:hover{
+  background:rgba(0,0,0,0.3);
+}
+
+
+#counter{
+  top: 30px;
+  right:35px;
+  width:auto;
+  color: black;
+  position:absolute;
+}
+
+#wrapper.active #next{right:0px;}
+#wrapper.active #previous{left:0px;}
+
+
+
+
+/*news-group*/
+.news-group-list .list2{
+  display: none;
+}
+
+/*--------------------------------------------page3=---------------------------------------------*/
+
+::-webkit-scrollbar{width:14px;}
+::-webkit-scrollbar-track{background-color:#bee1eb;}
+::-webkit-scrollbar-thumb:active {background-color:#00aff0}
+
+
+.youlike .news-book-list  li a {
+  display: inline-block;
   height: 100%;
   width: 100%;
-  opacity: 1;
+  color: #222222;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
-.opacity{
-  opacity: 1;
+
+
+
+#section3 .container {
+  height:80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.icon-down{
-  position:fixed;
-  left: 50%;
-  transform:translateX(-50%);
-  top:95%;
-  color:white;
-  font-size:3vh !important;
-  transition:all .3s;
-  transform-origin:50% 50%;//中心旋转
-  &:hover{
-    color: red;
-    transition:all .3s;
+
+
+
+.news-book .news-book-list {
+  position: relative;
+}
+
+.list-first-box {
+  height:100%;
+  width:100%;
+}
+.list-first-box ul {
+  overflow: auto;
+}
+
+.news-book-buttom {
+  display: flex;
+}
+.news-book-header {
+  width:100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+}
+
+.news-book-list {
+  width:100%;
+}
+.youlike .news-book-list ul ,.paihang ul{
+  width:100%;
+  height:100%;
+  display: flex;
+  flex-direction:row;
+  flex-wrap: wrap;
+  overflow: auto;
+}
+
+.youlike .news-book-list li {
+  height:25%;
+  line-height: 40px;
+  margin: 5px 0;
+  padding: 0 15px;
+}
+
+.youlike .news-book-list  li a:before {
+  content: " ";
+  display: inline-block;
+  height:10px;
+  width:4px;
+  margin-right: 10px;
+  background-color: #00aeef;
+}
+.youlike .news-book-list  li a:hover{
+  color:#00aeef;
+  text-dicotetion:none;
+}
+
+
+
+/*借阅排行*/
+.paihang .news-book-list {
+  overflow: hidden;
+}
+.paihang ul {
+  height:1200px;
+  padding-left: 25px;
+  position: relative;
+}
+.paihang ul li {
+  width: 100%;
+  border-bottom: 1px solid #CCCCCC;
+}
+.paihang .news-book-list  li a:before {
+  content: " ";
+  display: inline-block;
+  height:6px;
+  width:6px;
+  margin-right:20px;
+  background-color: #00aeef;
+}
+.paihang .news-book-list  li a{
+  display:inline-block;
+  height:100%;
+  width: 100%;
+  color:#222222;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+
+.news-book-header-right  {
+  position: absolute;
+  width:150px;
+  height:100%;
+  right:0px;
+  display: flex;
+  align-items: center;
+}
+
+/*-----------------------------------------------page3 media-----------------------------------------*/
+@media screen and (min-width: 768px) {
+  #section3 .container {
+    justify-content: center;
+  }
+  .news-book {
+    height:323px;
+    width:980px;
+    margin: 30px 0 20px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: whitesmoke;
+  }
+
+
+  .display{
+    display: none;
+  }
+  .news-book-header {
+    padding: 0 40px;
+    height: 45px;
+  }
+  .title {
+    font-size: 20px;
+  }
+  .title span {
+    font-size: 20px;
+  }
+  .news-book-header .title-click{
+    height:100%;
+    width:90px;
+    justify-self: flex-start;
+    margin-right: 10px;
+    text-align: center;
+    font-size: 20px;
+    line-height: 45px;
+    display: inline-block;
+    color: #000000;
+    cursor: pointer;
+  }
+  .news-book-header span.active {
+    color:#5766e5;
+    pointer-events: none;
+    cursor: default;
+    border-bottom: #5766e5 4px solid;
+  }
+  .list-first-box {
+    height:100%;
+    width:100%;
+  }
+  .list-first-box ul {
+    overflow: auto;
+  }
+
+
+
+
+  .news-book-list {
+    height:calc(100% - 45px);
+  }
+  .youlike .news-book-list  li a{
+    font-size: 16px;
+    color:#222222;
+  }
+  .list-first-box {
+    height:137px;
+    width:640px;
+    background-color:whitesmoke;
+
+  }
+
+  .news-book-buttom {
+    height:190px;
+    width:980px;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .youlike .news-book-list li {
+    width:25%;
+  }
+  .youlike {
+    width:647px;
+    height:100%;
+    overflow: hidden;
+    border-radius: 12px;
+    margin-right:20px;
+  }
+  .paihang {
+    width:323px;
+    height:100%;
+    align-items: stretch;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #edeef5;
+  }
+  .paihang ul li {
+    height:45px;
+  }
+  .paihang .news-book-list  li a{
+    line-height: 45px;
+  }
+  .paihang .news-book-header span {
+    font-size: 18px;
+  }
+
+  /*轮播按钮*/
+  .news-book-header-right ul {
+    height:100%;
+    width:80px;
+    margin-top:10px;
+    display: flex;
+  }
+  .news-book-header-right ul li{
+    justify-self: flex-start;
+    align-self: center;
+    width:8px;
+    height:8px;
+    margin: 0 3px;
+    background-color: #b1b1b1;;
+    border-radius: 50%;
+  }
+  .news-book-header-right ul li.active1 {
+    background-color: #0c0c0a;;
+  }
+  .left-btn{
+    position: absolute;
+    right: 40px;
+    display: inline-block;
+    height:25px;
+    width:25px;
+    cursor: pointer;
+    line-height: 23px;
+    text-align: center;
+    color:white;
+    background-color: #65645c;
+    border-radius: 50%;
+    font-size: 14px;
+  }
+  .right-btn{
+    position: absolute;
+    right:10px;
+    display: inline-block;
+    height:25px;
+    width:25px;
+    text-align: center;
+    color:white;
+    cursor: pointer;
+    line-height: 23px;
+    background-color: #65645c;
+    border-radius: 50%;
+    font-size: 14px;
+  }
+  .news-boox .news-book-list {
+    position: relative;
+  }
+  .news-book-list-box {
+    height:249px;
+    width:980px;
+    position: absolute;
+    bottom:0px;
+    left: 0px;
+  }
+  .news-book-list-box ul {
+    display: flex;
+    flex-direction: row;
+    width: 980px;
+    position: relative;
+  }
+  .news-book-list-box ul li {
+    height:100%;
+    width:980px;
+    justify-content: space-around;
+    display: flex;
+    flex-direction: row;
+  }
+  .news-book-list-box ul li img{
+    width:156px;
+    height: 200px;
+  }
+
+
+
+
+
+
+
+
+
+}
+
+@media screen and (max-width: 768px){
+
+
+  .news-book {
+    height:150px;
+    width:290px;
+    margin-top: 60px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom:8px;
+    background-color: white;
+  }
+
+  .news-book-header-right ul {
+    height:100%;
+    width:80px;
+    margin-top:10px;
+  }
+  .left-btn{
+    position: absolute;
+    right: 40px;
+    display: inline-block;
+    height:20px;
+    width:20px;
+    line-height: 18px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 10px;
+    color: white;
+  }
+  .right-btn{
+    position: absolute;
+    right:10px;
+    display: inline-block;
+    height:20px;
+    width:20px;
+    text-align: center;
+    color:white;
+    line-height: 18px;
+    background-color: #65645c;
+    border-radius: 50%;
+    font-size: 10px;
+  }
+  .news-book-list-box {
+    height:100px;
+    width:100%;
+    padding-left: 10px;
+    position: absolute;
+    bottom:0px;
+  }
+  .news-book-list-box ul {
+    display: flex;
+    flex-direction: row;
+    width: 290px;
+
+  }
+  /*轮播按钮*/
+  .news-book-header-right ul {
+    height:100%;
+    width:80px;
+    margin-top:10px;
+    display: flex;
+  }
+  .news-book-header-right ul li{
+    justify-self: flex-start;
+    align-self: center;
+    width:6px;
+    height:6px;
+    margin: 0 2px;
+    background-color: #b1b1b1;;
+    border-radius: 50%;
+  }
+  .news-book-header-right ul li.active1 {
+    background-color: #0c0c0a;;
+  }
+  .news-book-list-box ul li {
+    height:100%;
+    width:290px;
+    overflow:hidden;
+    justify-content: space-around;
+    display: flex;
+    flex-direction: row;
+  }
+  .news-book-list-box ul li img{
+    width:81px;
+    height: 100px;
+    margin-right: 12px;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .news-book-buttom {
+    height:340px;
+    width:300px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+
+  }
+  .youlike {
+    height:145px;
+    width:100%;
+    margin-bottom: 8px;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+  .paihang {
+    height:156px;
+    width:100%;
+    overflow: hidden;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+  .news-book-header {
+    padding: 0 20px;
+    height: 30px;
+  }
+
+  .title {
+    font-size: 12px;
+  }
+  .title-click,.title-out {
+    font-size: 12px;
+    line-height: 30px;
+  }
+
+  .news-book-list {
+    height:calc(100% - 30px);
+  }
+
+  .youlike .news-book-list ul{
+    scrollbar-base-color: #222222;
+  }
+  .youlike .news-book-list  li {
+    width:33%;
+  }
+  .youlike .news-book-list  li a {
+    font-size: 12px;
+  }
+  .paihang ul{
+    height:1200px;
+    display: none;
+  }
+  .paihang ul li {
+    height:32px;
+  }
+  .paihang .news-book-list  li a {
+    line-height: 32px;
+  }
+  .news-book-header .title-click {
+    height:100%;
+    width:60px;
+    justify-self: flex-start;
+    margin-right: 10px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 30px;
+    display: inline-block;
+    color: #000000;
+    cursor: pointer;
+  }
+  .news-book-header span.active {
+    color:#5766e5;
+    pointer-events: none;
+    cursor: default;
+    border-bottom: #5766e5 2px solid;
+  }
+
+
+  .list-first-box {
+    height:105px;
+    width:290px;
+    background-color:whitesmoke;
+
   }
 }
-.icon-shang{
-  position:fixed;
-  left: 50%;
-  transform:translateX(-50%);
-  top:95%;
-  color:white;
-  font-size:3vh !important;
-  transition:all .3s;
-  transform-origin:50% 50%;//中心旋转
-  &:hover{
-    color: red;
-    transition:all .3s;
+
+/*-------------------------------------------------------------page4--------------------------------------------------------------*/
+.a {
+  border:1px solid red;
+}
+#section4 .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:80%;
+}
+#section4 a.list-active {
+  background-color:#61b3d8;
+  color: white;
+}
+.list:not(:first-child){
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  #section4 .main-box {
+    height:450px;
+    width:980px;
+    border-radius: 15px;
+    background-color: #fdfdfd;
+  }
+  #section4 .header {
+    height:50px;
+    width:100%;
+    display: flex;
+    padding: 0 30px;
+    align-items: center;
+    border-radius: 15px 15px 0 0;
+    border-bottom: 1px solid #b8b8b8;
+  }
+  #section4 .main {
+    height:135px;
+    width:920px;
+    margin: 5px auto 15px auto;
+
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  #section4 .main a {
+    display: inline-block;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    width:192px;
+    height:42px;
+    border: 1px solid #6C6C6C;
+    line-height: 38px;
+    text-align: center;
+    margin: 0 10px;
+  }
+  #section4 .main a:hover{
+    color: white;
+    background-color: #5eb0d5;
+  }
+  .main-click {
+    color: white;
+    background-color: #5eb0d5;
+  }
+
+
+
+  #section4 .buttom {
+    width:920px;
+    height:210px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    margin: 5px auto 10px auto;
+    background-color: #efefef;
+    overflow: hidden;
+  }
+  .buttom .list {
+    widtn:100%;
+    height:100%;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+  }
+  .list ul{
+    widtn:100%;
+    height:100%;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 20px 10px;
+    overflow:auto;
+  }
+  .list ul li {
+    width:202px;
+    height:50px;
+  }
+  .list ul li a {
+    line-height: 50px;
+    font-size: 18px;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  .list ul li a:hover {
+    color: #2b669a;
+  }
+  .list ul li a:before {
+    content: " ";
+    display: inline-block;
+    height:14px;
+    width:5px;
+    margin-right: 10px;
+    margin-top: 18px;
+    background-color: #00aeef;
+  }
+
+
+
+}
+
+/*手机端-----------------------------*/
+@media screen and (max-width:768px) {
+
+  #section4 .main-box {
+    height:432px;
+    width:290px;
+    border-radius: 8px;
+    background-color: #fdfdfd;
+
+  }
+  #section4 .header {
+    height:40px;
+    width:100%;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    border-radius: 8px 8px 0 0;
+    border-bottom: 1px solid #b8b8b8;
+  }
+  #section4 .main {
+    height:140px;
+    width:250px;
+    margin: 5px auto 15px auto;
+    background-color: #efefef;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  #section4 .main a {
+    display: inline-block;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    width:105px;
+    height:26px;
+    margin-right: 10px;
+    border: 1px solid #6C6C6C;
+    line-height: 24px;
+    text-align: center;
+    color:black;
+    font-size: 12px;
+  }
+
+  #section4 .buttom {
+    width:250px;
+    height:210px;
+    -webkit-border-radius:6px;
+    -moz-border-radius:6px;
+    border-radius: 6px;
+    margin: 5px auto 10px auto;
+    background-color: #efefef;
+  }
+  .buttom .list {
+    widtn:100%;
+    height:100%;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+  }
+  .list ul{
+    widtn:100%;
+    height:100%;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 20px 10px;
+    overflow: auto
+  }
+  .list ul li {
+    width:100px;
+    height:36px;
+    display: flex;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    overflow:hidden;
+  }
+  .list ul li a {
+    line-height: 35px;
+    font-size: 12px;
+    color: #151511;
+  }
+  .list ul li a:hover {
+    color: #2b669a;
+  }
+  .list ul li a:before {
+    content: " ";
+    display: inline-block;
+    height:8px;
+    width:4px;
+    margin-right: 10px;
+    margin-top: -6px;
+    background-color: #00aeef;
+  }
+  .list:not(:first-child){
+    display: none;
   }
 }
+
+
+
+/*---------------------------common-----------------------------------------------------------*/
+/*设置全局的字体为sans-serif，关于中文字体的设置可参考 Amaze UI*/
+/*防止 iOS 横屏字号放大，同时保证在PC上 zoom 功能正常*/
+/*第2个问题场景是这样，苹果IOS设备调整后会自动调整文字的大小，按照苹果的意图是为了提升用户体验，*/
+/*比如竖屏状态下是14px，转换为横屏时就变成了20px，把text-size-adjust:100%就不会调整字体大小了。*/
+/*如果把值设置为'text-size-adjust:none'，那么就会导致用户无法放大缩小字体了。*/
+html {
+  font-family: sans-serif; /* 1 */
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+/*修复浏览器默认边距，统一效果*/
+body {
+  margin: 0;
+}
+
+/* HTML5 display definitions
+   ========================================================================== */
+
+/*修复 IE 8/9，HTML5新元素不能正确显示的问题，定义为block的元素*/
+/*修复 IE 10/11，details 和 summary 定义为 block 的元素*/
+/*修复 IE 11，main定义为 block 的元素*/
+
+/** 在IE 11中正确的`block`显示没有为`main`定义。*/
+/*这个问题想必大家都已经非常清楚，当低版本浏览器遇到不识别的元素时，*/
+/*会默认把他们当成内联元素(inline)，这里重新定义成为block元素。*/
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/*修复 IE 8/9，HTML5新元素不能正确显示的问题，定义为inline-block元素*/
+/*修复Chrome, Firefox, 和Opera的progress元素没有以baseline垂直对齐*/
+/*progress是HTML5的新标签，可以定义进度条，但是它Chrome, Firefox, 和Opera并没有已baseline垂直对齐。*/
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block; /* 1 */
+  vertical-align: baseline; /* 2 */
+}
+
+/*对不支持controls属性的浏览器，audio元素给以隐藏*/
+/*移除iOS5设备中多余的高度*/
+/*在IE8之前的浏览器是不支持controls属性，这里的办法是直接隐藏该元素*/
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/*修复 IE 7/8/9，Firefox 3 和 Safari 4 中hidden属性不起作用的问题*/
+/*在 IE，Safari，Firefox 22- 中隐藏template元素*/
+/*template标签用于HTML模板，大家应该都是用过HTML模版开发页面，
+这个标签是按照实际需求添加的，但是模板又不能在界面上显示，所以这里统一了样式，兼容旧浏览器。*/
+
+[hidden],
+template {
+  display: none;
+}
+
+/*链接 Links*/
+/*========================================================================== *!*/
+
+/*去掉 IE 10+ 点击链接时的灰色背景*/
+
+a {
+  background-color: transparent;
+}
+
+/*去掉点击时的outline焦点框，同时保证使用键盘可以显示焦点框，这个操作针对所有浏览器*/
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/*语义化文本标签 Text-level semantics*/
+/*========================================================================== */
+
+/*修正abbr元素在 Firefox 外其他浏览器没有下划线的问题*/
+
+/*语义abbr标签是表示简称或缩写，自身的title属性是完整版，但是此标签在Firefox下默认有下边框，*/
+/*而其他浏览器中没有，这里统一了样式。*/
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/*Firefox3+，Safari4/5 和 Chrome 中统一设置为粗体*/
+/*Firefox 3+, Safari 和 Chrome 给b和strong设置的属性是bolder，而不是bold，这里统一了样式。*/
+
+b,
+strong {
+  font-weight: bold;
+}
+
+/*修正 Safari5 和 Chrome 中没有样式的问题*/
+/*dfn 标签可标记那些对特殊术语或短语的定义，在Safari 和Chrome 里不是斜体，在这里统一了样式。*/
+
+dfn {
+  font-style: italic;
+}
+
+/*修复 Firefox 4+，Safari 5 和 Chrome 中section和article内的h1字体大小*/
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/*mark标签用来突出显示部分文本，设置后会有一个高亮背景，但是此标签是HTML5中的新标签，在低版本浏览器并不识别，所以需要重置样式。*/
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/*在所有浏览器中统一small的字体大小*/
+/*small标签在 HTML 4.01 就已经存在，HTML5 中增强了它的寓意，表示旁注信息，
+不过此标签在各个浏览器中呈现的字体大小不一样，在这里做了统一*/
+small {
+  font-size: 80%;
+}
+
+/*防止所有浏览器中的sub和sup影响行高*/
+
+
+/*sup和sub两个标签是用来表示上标和下标，
+据HTML标准中对small，sub和sup的大小要求都是smaller，
+但是如上所示normalize.css给small设的是80%，而sub和sup却是75%，
+所以为了保持一致，且不影响其他元素的行高，把两者的line-height设为0，
+然后设置它的垂直以baseline开始，设置top和bottom手动设置两者偏移量*/
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* Embedded content
+   ========================================================================== */
+
+/*去除 IE6-9 和 Firefox 3 中a内部img元素默认的边框*/
+/*在旧版本的浏览器中，图片默认会有一个奇丑无比的蓝色边框，这这里进行清除，统一样式。*/
+img {
+  border: 0;
+}
+
+/*修复 IE9 中的overflow的怪异表现*/
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Grouping content
+   ========================================================================== */
+
+/*修复 IE 8/9、Safari中margin失效*/
+/*figure 是HTML5的新标签，用做文档插图，但它在 IE 8/9 and Safari 中的默认margin失效，这里做了统一设置。*/
+
+figure {
+  margin: 1em 40px;
+}
+
+/*修正 Firefox 和其他浏览器之间的差异*/
+/*在 Firefox 中，hr元素的默认样式很多，和其它浏览器主要的差异有两点：*/
+/*1.设置了height为2px;*/
+/*2.box-sizing为border-box;*/
+/*此样式对这两个问题进行重置，进行统一*/
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+/*标签设置滚动条，内容溢出时出现*/
+/*大部分浏览器的pre在overflow的时候会直接溢出去，这里加上overflow:auto让它出现滚动条*/
+pre {
+  overflow: auto;
+}
+
+/*用于修复 Safari 5 和 Chrome 中奇怪的字体设置，统一字体样式*/
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+/* Forms
+   ========================================================================== */
+
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit; /* 1 */
+  font: inherit; /* 2 */
+  margin: 0; /* 3 */
+}
+
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+
+button {
+  overflow: visible;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+
+button,
+select {
+  text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button; /* 2 */
+  cursor: pointer; /* 3 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+
+input {
+  line-height: normal;
+}
+
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
+ *    (include `-moz` to future-proof).
+ */
+
+input[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box; /* 2 */
+  box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+
+legend {
+  border: 0; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Remove default vertical scrollbar in IE 8/9/10/11.
+ */
+
+textarea {
+  overflow: auto;
+}
+
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+
+optgroup {
+  font-weight: bold;
+}
+
+/* Tables
+   ========================================================================== */
+
+/**
+ * Remove most spacing between table cells.
+ */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+
+

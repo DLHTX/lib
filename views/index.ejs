@@ -1,3 +1,996 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="referrer" content="never">
+    <!--图片盗链问题 非常重要-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_597783_05fq0u39vuprdx6r.css">
+    <link href='http://cdn.webfont.youziku.com/webfonts/nomal/116166/46721/5ac1e59af629d8115c09a338.css' rel='stylesheet' type='text/css' />
+    <link href='http://cdn.webfont.youziku.com/webfonts/nomal/116166/41871/5ac1e570f629d8115c09a336.css' rel='stylesheet' type='text/css' />
+    <link href='http://cdn.webfont.youziku.com/webfonts/nomal/116166/46865/5ac1e840f629d8115c09a342.css' rel='stylesheet' type='text/css' />
+    <link href='http://cdn.webfont.youziku.com/webfonts/nomal/116166/35481/5ac1e4ecf629d8115c09a335.css' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_597783_05fq0u39vuprdx6r.css">
+    <link rel="stylesheet" href="/css/jquery.fullPage.css">
+    <link rel='stylesheet' href='/css/index.css' />
+    <link rel='stylesheet' href='/css/nav.css' />
+
+    <link href='http://cdn.webfont.youziku.com/webfonts/nomal/116166/29854/5acb0373f629d904dc4f1177.css' rel='stylesheet' type='text/css' />
+   <!-- font-family:'Bebas';-->
+
+
+
+
+
+</head>
+<body>
+
+<nav class="navbar " >
+    <div class="right " >
+        <div class="shrink shrink-out">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <!--PC端导航-->
+    <div class="nav" id="menu" >
+        <a href="#page1" data-menuanchor="page1">HOME</a>
+        <a href="#page2" data-menuanchor="page2">RESOURCE</a>
+        <a href="#page3" data-menuanchor="page3">SERVE</a>
+        <a href="#page4" data-menuanchor="page4">HELP</a>
+        <a href="#page5">DETAIL</a>
+        <a href="#page6 ">MY BOOK</a>
+    </div>
+
+   <!-- 移动端导航-->
+
+    <div class="shrink-nav-box">
+        <ul class="shrink-nav">
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">RESOURCE</a></li>
+            <li><a href="#">SERVE</a></li>
+            <li><a href="#">DETAIL</a></li>
+            <% if(isLogin){%>
+            <li><a href="#">MY BOOK</a></li>
+            <% }%>
+        </ul>
+    </div>
+
+    <!--登陆注册按钮-->
+    <% if(isLogin){%>
+    <div class="head">
+        <div class="login"><a href="#">你好</a></div>
+        <div class="sign-up"><a href="#"><%=user.username %></a></div>
+        <div class="login"><a href="/auth/logout">注销</a></div>
+    </div>
+    <%}else{ %>
+    <div class="head">
+        <div class="login"><a href=/auth/log>LOGIN</a></div>
+        <div class="sign-up"><a href=/auth/reg>REGISTER</a></div>
+    </div>
+    <% }%>
+</nav>
+<!--导航 结束-->
+
+<!--页面1-->
+
+
+<div class="section" id="section1">
+    <span class="iconfont icon-next"></span>
+    <span class="iconfont icon-pre"></span>
+    <div class="container ">
+        <!--搜索-->
+        <div class="search-group  ">
+
+            <div class="search-box flex">
+                <input  type="text" placeholder="输入关键词检索"  class="search-content">
+            </div>
+
+            <div class="searchBtn flex">
+                <span class="news"> </span>
+            </div>
+        </div>
+        <!--新闻-->
+        <div class=" news-box">
+            <ul id="news-ul">
+                <li class="news-li"><a class="news" href="#">广州图书馆2018年流动图书馆服务安排</a></li>
+                <li class="news-li"><a class="news" href="#">中华人民共和国公共图书馆法</a></li>
+                <li class="news-li"><a class="news" href="#">欢迎测试智能咨询和在线咨询服务</a></li>
+                <li class="news-li"><a  class="news" href="#">“恋上图书馆”知识竞赛活动获奖名单</a></li>
+                <li class="news-li"><a class="news" href="#">寻询善解，问津有道——智能咨询和在线咨询服务全新推出</a></li>
+                <li class="news-li"><a class="news" href="#">关于外文、艺术、港台等室调整开放时间的通知</a></li>
+                <li class="news-li"><a class="news" href="#">图书馆就在您身边——图书馆汽车图书馆通借通还服务启动</a></li>
+                <li class="news-li"><a class="news" href="#">认真学习贯彻统计法律法规　切实提高统计法制观念</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--页面2-->
+<div class="section" id="section2">
+    <div class="container">
+        <!--轮播-->
+        <div id="wrapper">
+            <!--轮播图片列表-->
+            <ul id="slider">
+
+            </ul>
+            <!--轮播按钮-->
+            <div class="btns" id="next"><i class="fa fa-arrow-right"></i></div>
+            <div class="btns" id="previous"><i class="fa fa-arrow-left"></i></div>
+            <div id="counter"></div>
+            <!--项目导航-->
+            <div id="pagination-wrap">
+                <ul>
+                </ul>
+            </div>
+        </div>
+        <!--新闻公告-->
+        <div class="news-group">
+            <!--头部标题-->
+            <div class="news-group-header">
+                <span class="active">通知公告</span>
+                <span>新闻动态</span>
+                <a>MORE+</a>
+            </div>
+            <!--内容-->
+            <div class="news-group-box">
+                <div class="news-group-list">
+                    <div class="list1">
+                        <ul>
+                            <li><a href="#">
+                                    “我和安全同步行”在线知识竞赛获奖名单
+                                </a></li>
+                            <li><a href="#">
+                                    关于取消“刘斯翰先生诗词系列讲座”第48讲直播的通告
+                                </a></li>
+                            <li><a href="#">
+                                    欢迎测试智能咨询和在线咨询服务
+                                </a></li>
+                            <li><a href="#">
+                                    中华人民共和国公共图书馆法
+                                </a></li>
+                            <li><a href="#">
+                                    “恋上图书馆”知识竞赛活动获奖名单
+                                </a></li>
+                            <li><a href="#">
+                                    寻询善解，问津有道——智能咨询和在线咨询服务全新推出
+                                </a></li>
+                            <li><a href="#">
+                                    关于取消“刘斯翰先生诗词系列讲座”第48讲直播的通告
+                                </a></li>
+                            <li><a href="#">
+                                    关于取消“刘斯翰先生诗词系列讲座”第48讲直播的通告
+                                </a></li>
+                        </ul>
+                    </div>
+                    <div class="list2">
+                        <ul>
+                            <li><a href="#">
+                                    图书馆分工会组织爬龙王山健..
+                                </a></li>
+                            <li><a href="#">
+                                    图书馆党支部召开2017年组织生活会和民主评议党员工作会
+                                </a></li>
+                            <li><a href="#">
+                                    我馆馆员参加学校合唱比赛获佳绩..
+                                </a></li>
+                            <li><a href="#">
+                                    我馆派员参加第三届江苏省科技查新工..
+                                </a></li>
+                            <li><a href="#">
+                                    图书馆馆员环象山湖健身走活动
+                                </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--页面3-->
+<div class="section" id="section3">
+    <div class="container">
+        <!--新书推荐-->
+        <div class="news-book flex-y">
+            <!--头部-->
+            <div class="news-book-header">
+                <span class="title-click">新书推荐</span>
+                <div class="news-book-header-right">
+                    <ul class="news-book-header-ul">
+                    </ul>
+                    <span class="left-btn"><i class="fa fa-arrow-left"></i></span>
+                    <span class="right-btn"><i class="fa fa-arrow-right"></i></span>
+                </div>
+            </div>
+            <div class="news-book-list">
+
+                <div class="news-book-list-box" >
+
+                    <ul class="news-book-list-ul">
+                        <li>
+
+                        </li>
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--专题推荐 猜你喜欢  借阅排行-->
+        <div class="news-book-buttom flex">
+            <div class="youlike flex-y">
+                <div class="news-book-header">
+                    <span class="title-click active">专题推荐</span>
+                    <span class=" title-click">猜你喜欢</span>
+                </div>
+                <div class="news-book-list">
+                    <div class="list-first-box">
+                        <ul class="list-first" style="background-color:whitesmoke">
+                            <li >
+                                <a href="#">儿童百问百答．44，滑稽数学游戏</a>
+                            </li>
+                            <li >
+                                <a href="#"> 	嘀嘀，小汽车来了</a>
+                            </li>
+                            <li >
+                                <a href="#">揭秘身体</a>
+                            </li>
+                            <li >
+                                <a href="#"> 	揭秘交通工具</a>
+                            </li>
+                            <li >
+                                <a href="#"> 	如何阅读一本书</a>
+                            </li>
+                            <li >
+                                <a href="#"> 	未来简史：从智人到智神</a>
+                            </li>
+                            <li >
+                                <a href="#"> 	广东寻宝记</a>
+                            </li>
+                            <li >
+                                <a href="#"> 	人类简史：从动物到上帝：a brief ...</a>
+                            </li>
+                            <li >
+                                <a href="#"> 	人类简史：从动物到上帝</a>
+                            </li>
+                            <li >
+                                <a href="#">明朝那些事儿．第陆部，日暮西山</a>
+                            </li>
+                            <li >
+                                <a href="#"> 	半小时漫画中国史：其实是一本严谨...</a>
+                            </li>
+                            <li >
+                                <a href="#">揭秘数学</a>
+                            </li>
+                            <li >
+                                <a href="#"> 	揭秘物理</a>
+                            </li>
+                            <li >
+                                <a href="#"> 	冒险岛数学奇遇记：数学应用漫画．...</a>
+                            </li>
+                            <li >
+                                <a href="#"> 	冒险岛数学奇遇记．34，平均数里藏...
+                                </a>
+                            </li>
+                            <li >
+                                <a href="#"> 	恐龙王国大百科</a>
+                            </li>
+                            <li >
+                                <a href="#"> 	蓝鲸</a>
+                            </li>
+                            <li >
+                                <a href="#"> 	危险恐龙</a>
+                            </li>
+                            <li >
+                                <a href="#"> 	探秘恐龙世界</a>
+                            </li>
+                            <li >
+                                <a href="#">探秘动物世界</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="list-first-box display">
+                        <ul  class="list-first" style="background-color:whitesmoke">
+                            <li><a href="#">
+                                    休闲生活
+                                </a></li>
+                            <li><a href="#">
+                                    外文阅读
+                                </a></li>
+                            <li><a href="#">
+                                    地域文化
+                                </a></li>
+                            <li><a href="#">
+                                    休闲生活
+                                </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="paihang flex-y">
+                <div class="news-book-header title">
+                    <span class="title-click">借阅排行</span>
+                </div>
+                <div class="news-book-list">
+                    <ul style="background-color:whitesmoke; ">
+                        <li >
+                            <a href="#">2017年1月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年2月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年3月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年4月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年5月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年6月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年7月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年8月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年9月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年10月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年11月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年12月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2018年1月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2018年2月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2018年3月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年1月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年2月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年3月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年4月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年5月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年6月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年7月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年8月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年9月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年10月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年11月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年12月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2018年1月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2018年2月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2018年3月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年1月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年2月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年3月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年4月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年5月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年6月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年7月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年8月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年9月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年10月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年11月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年12月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2018年1月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2018年2月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2018年3月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年1月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年2月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年3月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年4月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年5月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年6月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年7月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年8月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年9月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年10月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年11月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2017年12月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2018年1月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2018年2月借阅排行</a>
+                        </li>
+                        <li >
+                            <a href="#">2018年3月借阅排行</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--页面4-->
+<div class="section" id="section4">
+    <div class="container">
+        <div class="main-box">
+            <!--头部-->
+            <div class="header">
+                <span class="title">数字 <span style="color:#7bc9d6;">资源</span></span>
+            </div>
+            <div class="main">
+                <a class="list-active" href="#">综合数据库</a>
+                <a href="#">电子图书</a>
+                <a href="#">电子报刊</a>
+                <a href="#">多媒体</a>
+                <a href="#">主题资源</a>
+                <a href="#">地域文化</a>
+                <a href="#">试用数据库</a>
+                <a href="#">开放存取资源</a>
+            </div>
+            <div class="buttom">
+                <div class="list">
+                    <ul >
+                        <li ><a href="#">中国知网</a></li>
+                        <li><a href="#">数据库</a></li>
+                        <li><a href="#">独秀学术</a></li>
+                        <li><a href="#">OCLC FirstSearch</a></li>
+
+                    </ul>
+                </div>
+                <div class="list">
+                    <ul>
+                        <li><a href="#">民国时期文献总库</a></li>
+                        <li><a href="#">Apabi数字资源平台</a></li>
+                        <li><a href="#">  点点书库</a></li>
+                        <li><a href="#">书香中国</a></li>
+                        <li><a href="#">中华连环画数字</a></li>
+                        <li><a href="#">书香中国(原创)</a></li>
+                        <li><a href="#">独秀学术</a></li>
+                        <li><a href="#">易趣少儿数字图</a></li>
+                        <li><a href="#"> 点点动漫馆</a></li>
+                    </ul>
+                </div>
+                <div class="list">
+                    <ul>
+                        <li><a href="#">龙源电子期刊阅</a></li>
+                        <li><a href="#"> 博看电子期刊数...</a></li>
+                        <li><a href="#">晚清及民国时期...</a></li>
+                        <li><a href="#">人大复印报刊资料</a></li>
+                        <li><a href="#">美国《国家地理...</a></li>
+                        <li><a href="#"> Emerald回溯数据库</a></li>
+                        <li><a href="#">   剑桥期刊回溯数...</a></li>
+                        <li><a href="#"> 中少快乐阅读平台</a></li>
+                    </ul>
+                </div>
+                <div class="list">
+                    <ul>
+                        <li><a href="#">环球英语多媒体...</a></li>
+                        <li><a href="#"> 少儿多媒体图书馆</a></li>
+                        <li><a href="#">独秀学术</a></li>
+                        <li><a href="#"> MET全民英语学...</a></li>
+                        <li><a href="#">库客数字音乐图...</a></li>
+                        <li><a href="#"> 朗锐百听数字听...</a></li>
+                        <li><a href="#"> 知识视界</a></li>
+                        <li><a href="#">超星学术视频</a></li>
+                        <li><a href="#">CAMIO艺术博物...</a></li>
+                        <li><a href="#">乐儿数字资源平台</a></li>
+                        <li><a href="#"> 新东方多媒体学...</a></li>
+                        <li><a href="#"> 软件通计算机技...</a></li>
+                        <li><a href="#"> 广州图书馆视频...</a></li>
+                    </ul>
+                </div>
+                <div class="list">
+                    <ul>
+                        <li><a href="#">“一带一路”数...</a></li>
+                        <li><a href="#">《皮书》数据库</a></li>
+                        <li><a href="#">独秀学术</a></li>
+                        <li><a href="#">国务院发展研究...</a></li>
+                        <li><a href="#">e线图情</a></li>
+                        <li><a href="#"> 银符考试题库</a></li>
+                        <li><a href="#">高校自建媒体库</a></li>
+                        <li><a href="#">职业全能培训库</a></li>
+                    </ul>
+                </div>
+                <div class="list">
+                    <ul>
+                        <li><a href="#">中国知网</a></li>
+                        <li><a href="#">数据库</a></li>
+                        <li><a href="#">独秀学术</a></li>
+                        <li><a href="#">OCLC FirstSearch</a></li>
+                        <li><a href="#">中国知网</a></li>
+                        <li><a href="#">数据库</a></li>
+                        <li><a href="#">独秀学术</a></li>
+                        <li><a href="#">OCLC FirstSearch</a></li>
+                    </ul>
+                </div>
+                <div class="list">
+                    <ul>
+                        <li><a href="#">中国知网</a></li>
+                        <li><a href="#">数据库</a></li>
+                        <li><a href="#">独秀学术</a></li>
+                        <li><a href="#">OCLC FirstSearch</a></li>
+                        <li><a href="#">中国知网</a></li>
+                        <li><a href="#">数据库</a></li>
+                        <li><a href="#">独秀学术</a></li>
+                        <li><a href="#">OCLC FirstSearch</a></li>
+                    </ul>
+                </div>
+                <div class="list">
+                    <ul>
+                        <li><a href="#">中国知网</a></li>
+                        <li><a href="#">数据库</a></li>
+                        <li><a href="#">独秀学术</a></li>
+                        <li><a href="#">OCLC FirstSearch</a></li>
+                        <li><a href="#">中国知网</a></li>
+                        <li><a href="#">数据库</a></li>
+                        <li><a href="#">独秀学术</a></li>
+                        <li><a href="#">OCLC FirstSearch</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--页面5-->
+<div class="section" id="section5"></div>
+<!--页面6-->
+<div class="section" id="section6"></div>
+
+
+
+
+
+
+
+
+<p class="right">Powered by © 2018</p>
+<script src="/js/jquery.js"></script>
+<script src="/js/jquery.fullPage.min.js"></script>
+<script src="/js/jquery-ui-1.10.3.min.js"></script>
+<script src="/js/index.js"></script>
+
+
+
+
+<script>
+    $(document).ready(function() {
+         //手机端隐藏项目导航 PC端显示
+        console.log($(window).width())
+        if($(window).width()>720){
+            $.fn.fullpage({
+                slidesColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', '#f90','#4BBFC3','#1bbc9b'],
+                anchors: ['page1', 'page2', 'page3', 'page4','page5','page6'],
+                menu: '#menu',
+                navigation:true,
+                scrollingSpeed:300,
+                verticalCentered:true,
+                loopBottom:true,
+                paddingTop:"65px"
+            })
+       }
+
+
+        else {
+            $.fn.fullpage({
+                slidesColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', '#f90'],
+                anchors: ['page1', 'page2', 'page3', 'page4'],
+                menu: '#menu',
+                navigation:false,
+                scrollingSpeed:700,
+                verticalCentered:true,
+                loopBottom:true,
+                paddingTop:"20px"
+            })
+        }
+    });
+
+    //page1
+    $(document).ready(function () {
+        $(".shumu-shrink-nav").css("display","none")
+        $(".shumu").click(function () {
+            $("#nav1").fadeToggle(300)
+            $("#nav2").fadeOut(300);
+        });
+        $("#nav1").find("span").click(function () {
+            var oHtml=$(this).html();
+            $(".shumu .btn-head").html(oHtml)
+        })
+
+
+
+        $(".timing").click(function () {
+            $("#nav2").fadeToggle(300)
+            $("#nav1").fadeOut(300);
+        })
+
+        $("#nav2").find("span").click(function () {
+            var oHtml=$(this).html();
+            $(".timing .btn-head").html(oHtml)
+        })
+
+
+        // 检索
+        $(".search-box input").focus(function () {
+            console.log('aaa')
+            $('.searchBtn').css({
+                background:'rgb(220,20,60)',
+                transition:'all .3s'
+            })
+        })
+
+        $(".search-box input").blur(function () {
+            console.log('aaa')
+            $('.searchBtn').css({
+                background:'rgb(73,197,182)',
+                transition:'all .3s'
+            })
+        })
+
+
+
+    })
+
+    //page2
+
+
+    $(document).ready(function(){
+        var pos = 0;
+        var totalSlides = $('#wrapper ul li').length;
+        var sliderWidth = $('#wrapper').width();
+        $('#wrapper ul#slider').width(sliderWidth*totalSlides);/* ul总宽度*/
+        $('#next').click(function(){
+            slideRight();
+        });
+        $('#previous').click(function(){
+            slideLeft();
+        });
+        var autoSlider = setInterval(slideRight, 3000);
+        $.each($('#wrapper ul li'), function() {
+            //create a pagination
+            var li = document.createElement('li');
+            $('#pagination-wrap ul').append(li);
+        });
+        countSlides();
+        pagination();
+        $('#wrapper').hover(
+            function(){ $(this).addClass('active'); clearInterval(autoSlider); },
+            function(){ $(this).removeClass('active'); autoSlider = setInterval(slideRight, 3000); }
+        );
+        function slideLeft(){
+            pos--;
+            if(pos==-1){ pos = totalSlides-1; }
+            $('#wrapper ul#slider').animate({left: -(sliderWidth*pos)+"px"},500);
+
+            //*> optional
+            countSlides();
+            pagination();
+        }
+        function slideRight(){
+            pos++;
+            if(pos==totalSlides){ pos = 0; }
+            $('#wrapper ul#slider').animate({left: -(sliderWidth*pos)+"px"},500);
+
+            //*> optional
+            countSlides();
+            pagination();
+        }
+        function countSlides(){
+            $('#counter').html(pos+1 + ' / ' + totalSlides);
+        }
+
+        function pagination(){
+            $('#pagination-wrap ul li').removeClass('active');
+            $('#pagination-wrap ul li:eq('+pos+')').addClass('active');
+        }
+
+
+        // news-list
+
+        $(".news-group-header span").click(
+            function () {
+                $( this ).addClass("active").siblings().removeClass("active");
+                var index= $( this ).index();
+                $(".news-group-list>div").eq(index).slideDown().siblings().hide();
+            }
+        )
+    });
+
+    //page3
+    $(document).ready(function () {
+        // page3  news-book-bottom
+        $(".youlike .news-book-header span").click(function () {
+            $( this ).addClass("active").siblings().removeClass("active");
+            var index= $( this ).index();
+            $(".youlike").find(".list-first-box").eq(index).show().siblings().hide()
+        })
+
+        var oHeight = $(".paihang").find("li").eq(1).height();
+        var oLenght= $(".paihang ul").children('li').length;
+        var m= $(".paihang ul").outerHeight(true);
+        var x=-oHeight*oLenght*30;
+
+        function Move () {
+            $(".paihang ul").animate({
+                marginTop: -m
+            },22000,function () {
+                var s=Math.abs(parseInt(($(this).css("margin-top"))))
+                if(s >= m){
+                    // $(this).find("li").slice(0, 15).appendTo($(this));//slice选取一段元素
+                    $(this).css("margin-top", 0);
+                }
+            })
+        }
+        Move();
+        // HOVER  停止当前动画
+        $(".paihang ul").hover(function(){
+            $(this).stop();
+        },function () {
+            Move();
+        })
+        // // news-book
+        //current pos1ition
+        var pos1 = 0;
+        //number of slides
+        var totalSlides1 = $('.news-book-list-box ul li').length;
+
+        //get the slide width
+        var sliderWidth1 = $('.news-book-list-box').width();
+
+        /*****************
+         BUILD THE SLIDER
+         *****************/
+        //set width to be 'x' times the number of slides
+        $('.news-book-list-box ul').width(sliderWidth1*totalSlides1);/* ul总宽度*/
+        //next slide
+        $('.left-btn').click(function(){
+
+            slideRight1();
+        });
+
+        //previous slide
+        $('.right-btn').click(function(){
+            slideLeft1();
+
+        });
+
+        var autoSlider1= setInterval(slideRight1, 3000);
+
+        //for each slide
+        $.each($('.news-book-list-box ul li'), function() {
+            //create a pagination1
+            var li = document.createElement('li');
+            $('.news-book-header-ul').append(li);
+        });
+
+        //counter
+        // countSlides11();
+
+        //pagination1
+        pagination1();
+
+        //hide/show controls/btns when hover
+        //pause automatic slide when hover
+        $('.news-book').hover(
+            function(){ $(this).addClass('active1');
+
+                clearInterval(autoSlider1); },
+            function(){ $(this).removeClass('active1'); autoSlider1= setInterval(slideRight1, 3000); }
+        );
+
+
+
+
+
+        /***********
+         SLIDE LEFT  定义左右控件
+         ************/
+        function slideLeft1(){
+            pos1--;
+            if(pos1==-1){ pos1 = totalSlides1-1; }
+            $('.news-book-list-box ul.news-book-list-ul').animate({left: -(sliderWidth1*pos1)+"px"},500);
+
+            //*> optional
+            // countSlides1();
+            pagination1();
+        }
+
+
+        /************
+         SLIDE RIGHT
+         *************/
+        function slideRight1(){
+            pos1++;
+            if(pos1==totalSlides1){ pos1 = 0; }
+            $('.news-book-list-box ul.news-book-list-ul').animate({left: -(sliderWidth1*pos1)+"px"},500);
+
+            //*> optional
+            // countSlides1();
+            pagination1();
+        }
+
+
+
+
+        /************************
+         //*> OPTIONAL SETTINGS
+         ************************/
+        // function countSlides1(){
+        //     $('#counter').html(pos1+1 + ' / ' + totalSlides1);
+        // }
+
+        function pagination1(){
+            $('.news-book-header-ul li').removeClass('active1');
+            // $('.news-book-header-ul li:eq('-pos1-')').addClass('active1');
+            $('.news-book-header-ul li').eq(pos1-1).addClass('active1');
+        }
+
+    });
+
+    //page4
+
+    $(document).ready(function () {
+        $(".main").find("a").click(function () {
+            $( this ).addClass("list-active").siblings().removeClass("list-active");
+            var x = $(this).index();
+            $(".buttom>div").eq(x+1).css({display:"block"}).siblings().css({display:"none"})
+        })
+
+    })
+    //nav
+    $(document).ready(function () {
+        $(window).resize(function () {          //当浏览器大小变化时
+            if($(window).width()>720){
+                $(".shrink-nav").hide();
+            }
+        })
+        $(".shrink").click(function () {
+            $(this).toggleClass("shrink-click shrink-out");
+            $(".shrink-nav").slideToggle();
+        })
+        $(".shrink-nav a").each(function( index ) {
+            $( this ).css({'animation-delay': (index/10)+'s'});  /*animation-delay 动画延迟执行*/
+        });
+    })
+
+    //index
+    $(document).ready(function () {
+        var oUl=$("#news-ul")
+        var height;
+        height=$(".news-box").outerHeight();
+        $(window).resize(function () {
+            height=$(".news-box").outerHeight();
+            // return height;
+        })
+        var num = oUl.find("li").length;
+        var i=0;
+        setInterval(function () {
+            i++;
+            if(i==num){i=0}
+            var top=-i*height;
+            oUl.animate({top:top})
+        },3000)
+
+    })
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
 <!DOCTYPE html>
 <html>
   <head>
@@ -9,38 +1002,6 @@
   <body>
 
   <span class="pagebtn iconfont icon-down"></span>
-
-
-
-  <!--注册登陆-->
-
-
-    <!--    <div class="registerBox">
-            <input type="text" id="username"/>Username
-            <input type="text" id="password"/>password
-        </div>
-        <button class="register-btn">注册</button>
-
-
-          <div class="loginBox">
-              <input type="text" id="logusername"/>Username
-              <input type="text" id="logpassword"/>password
-          </div>
-          <button class="login-btn">登陆</button> <button ><a href="/auth/logout">注销</a></button>
-
-
--->
-
-<!--
-  <div class="searchbili">
-      <input class='bli' type="text"/>
-      <button class="biliBtn">搜索</button>
-  </div>
--->
-
-
-
-
   <nav>
      <div class="navBox">
        <div><a href="#">首页</a></div>
@@ -99,3 +1060,4 @@
   <script src="/js/XSwitch.js"></script>
   </body>
 </html>
+-->

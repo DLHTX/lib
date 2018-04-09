@@ -18,6 +18,7 @@ var req = getRequest();
 if(req.q === undefined){
     console.log('no search')
 }else{
+    $('nav .q').text(req.q)
     getbook()
 }
 
@@ -41,31 +42,32 @@ function getbook(){
 function setbook(ret){
 
      ret.forEach(function(book){
-                 var tpl  = `<span id="searchBox" class = "clearfix">
-                            <a href="#"><img src="https://img1.doubanio.com/mpic/s4293097.jpg" alt=""></a>
-                            <span class="detail">
-                                <div class="name"></div>
-                                <div class="author"></div>
-                                <div class="pubdate"></div>
-                                <div class="publisher"></div>
-                                <div class="isbn"></div>
-                                <div class="price"></div>                      
-                            </span>
-                               <button class="love" data-id="">加入收藏</button>     
-                         </span>
+                 var tpl  = `
+           <div class="bookBox">
+                    <a href="#">
+                    <img src="https://img1.doubanio.com/view/subject/m/public/s4293097.jpg" alt="" ></a>
+                    <div class="detail">
+                        <h3 class="title"></h3>
+                        <p class="author"></p>
+                        <p class="publisher"></p>
+                        <p class="author"></p>
+                        <h2 class="price"></h2>
+                    </div>
+                    <div class="love">收藏</div>
+	     	</div>
                          `
                  this.$book = $(tpl)
                  this.$book.find('a').attr('href',book.alt);
                  this.$book.find('img').attr('src',book.image);
-                 this.$book.find('.name').text('书名:'+ book.title);
+                 this.$book.find('.title').text(book.title);
                  this.$book.find('.author').text('作者:'+ book.author[0]);
-                 this.$book.find('.pubdate').text('出版社:'+ book.pubdate);
-                 this.$book.find('.publisher').text( '出版时间:'+ book.publisher);
+                 /*this.$book.find('.pubdate').text('出版社:'+ book.pubdate);*/
+                 this.$book.find('.publisher').text( '出版社:'+ book.publisher);
                  this.$book.find('.isbn').text('ISBN:'+  book.isbn13);
-                 this.$book.find('.price').text( '价格:'+ book.price);
+                 this.$book.find('.price').text( book.price);
                  this.$book.find('.love').attr('data-id',book.id);
                  this.id =  book.id;
-                  $('#content').append($book);
+                  $('.container').append($book);
      })
 
     $('.love').on('click',function(){

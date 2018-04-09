@@ -1,22 +1,104 @@
-body {
+* {
+  margin: 0;
+  padding: 0;
+}
+nav {
+  height: 6vh;
+  background: white;
+  width: 100%;
+  box-shadow: 0 1px 30px rgba(0, 0, 0, 0.4);
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+nav .q {
   color: red;
 }
-#content #searchBox {
-  width: 50vh;
-  height: 18vh;
-  margin: 10px auto;
-  border: 1px solid red;
+.container {
+  margin: 0 auto;
+  padding: 0 20vh;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
-#content #searchBox img {
-  float: left;
+.bookBox {
+  margin: 5vh 0vh;
+  width: 235px;
+  height: 364px;
+  position: relative;
+  transition: all .3s;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
-#content #searchBox .detail {
-  padding-left: 60px;
+.bookBox:hover {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s;
 }
-.clearfix {
-  content: "";
-  display: block;
-  clear: both;
+img {
+  position: absolute;
+  top: -40%;
+  left: 0;
+  right: 0;
+  width: 235px;
+}
+.detail {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  width: 235px;
+  height: 235px;
+  z-index: 10;
+}
+h3 {
+  color: #505050;
+  margin: 28px 0 0 10px;
+  font-size: 2vh;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.detail p {
+  font-size: 1vh;
+  margin: 13px 0 13px 10px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.price {
+  color: #dc143c;
+  margin-left: 10px;
+}
+.love {
+  height: 25px;
+  width: 55px;
+  background-color: #dc143c;
+  position: absolute;
+  top: 88%;
+  left: 70%;
+  border-radius: 3px;
+  color: white;
+  font-size: 5px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all .3s;
+  z-index: 10;
+}
+.love:hover {
+  background-color: #b4143c;
+  transition: all .3s;
 }
 .toast {
   position: fixed;

@@ -1,0 +1,207 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0;
+  font-family:'Regencie';
+}
+.b {
+  border:1px saddlebrown solid;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+
+
+.navbar {
+  width: 100%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top:0px;
+  left: 0px;
+  z-index:100;
+  flex-direction:row-reverse;
+  color:black;
+}
+.navbar .head {
+  flex: 4;
+  height:100%;
+  display: flex;
+}
+
+.head div {
+  box-shadow:none;
+  border: none;
+  height:100%;
+  margin: 0 1vh;
+}
+.head .login a{
+  height:7vh;
+  width:12vh;
+  transition:all .3s;
+}
+.head .login a:hover{
+  color:rgb(73,197,182);
+  transition:all .3s;
+}
+
+
+.head .sign-up a{
+  height:7vh;
+  transition:all .3s;
+}
+.head .sign-up a:hover{
+  color:rgb(73,197,182);
+  transition:all .3s;
+}
+.navbar .nav {
+  display: flex;
+  justify-content: flex-end;
+  height:100%;
+  flex: 7;
+
+}
+.navbar a {
+  height:100%;
+  width:15%;
+  color:black;
+  min-width: 80px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  transition:all .3s;
+}
+.nav a:hover {
+  background-color: rgb(200,200,200);
+  transition:all .3s;
+}
+
+.right {
+  flex:0.5;
+  position: relative;
+  align-items:flex-start;
+}
+
+
+.shrink {
+  color: rgb(200,200,200);
+  height: 45px;
+  font-size:25px;
+  text-align: center;
+  float:right;
+  width: 45px;
+  position: relative;
+  -webkit-transition: background 0.5s;
+  -moz-transition: background 0.5s;
+  -o-transition: background 0.5s;
+  transition: background 0.5s;
+}
+
+.shrink span {
+  position: absolute;
+  left: calc((100% - 25px) / 2);
+  top: calc((100% - 1px) / 2);
+  width: 25px;
+  height: 1px;
+  background-color: rgba(0,0,0,1);
+}
+.shrink span:nth-child(1){
+  transform: translateY(4px) rotate(0deg);
+}
+.shrink span:nth-child(2){
+  transform: translateY(-4px) rotate(0deg);
+}
+
+
+
+/*点击动效*/
+.shrink-click span:nth-child(1){
+  transform: translateY(4px) rotate(0deg);
+}
+.shrink-click span:nth-child(2){
+  transform: translateY(-4px) rotate(0deg);
+}
+
+
+
+
+
+.shrink-click span:nth-child(2){
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-name: clickfirst;
+}
+.shrink-click span:nth-child(1){
+  animation-duration: 0.5s;
+  animation-fill-mode: both; /* animation-fill-mode 属性规定动画在播放之前或之后，其动画效果是否可见。*/
+  animation-name: clicksecond;
+}
+
+
+
+@keyframes clickfirst {
+  0% {
+    transform: translateY(4px) rotate(0deg);
+
+  }
+
+  100% {
+    transform: translateY(0) rotate(45deg);
+  }
+}
+
+
+
+@keyframes clicksecond {
+  0% {
+    transform: translateY(-4px) rotate(0deg);
+  }
+
+  100% {
+    transform: translateY(0) rotate(-45deg);
+  }
+}
+
+.mobile-inner-header-icon-out span:nth-child(2){
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-name: outfirst;
+}
+.mobile-inner-header-icon-out span:nth-child(1){
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-name: outsecond;
+}
+
+@keyframes outfirst {
+  0% {
+    transform: translateY(0) rotate(-45deg);
+  }
+
+  100% {
+    transform: translateY(-4px) rotate(0deg);
+  }
+}
+
+
+
+@keyframes outsecond {
+  0% {
+    transform: translateY(0) rotate(45deg);
+  }
+
+  100% {
+    transform: translateY(4px) rotate(0deg);
+  }
+}

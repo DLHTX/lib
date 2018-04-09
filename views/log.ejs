@@ -2,23 +2,49 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>test</title>
+    <title><%= title %></title>
     <script type="text/javascript" src="js/jquery-1.11.2.js"></script>
     <!--<script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.10.2/jquery-1.10.2.js"></script>-->
-    <style type="text/css">
-        *{ margin:0; padding:0; }
-        body{ font:12px/1.125 Arial, Helvetica, sans-serif; background:#fff; }
-        a{ color:#0a8cd2; text-decoration:none; }
-        a:hover{ text-decoration:underline; }
-        .clearfix:after{ content:"."; display:block; height:0; clear:both; visibility:hidden; }
-        .clearfix{ display:inline-block; }
-        .clearfix{ display:block; }
-        .clear{ clear:both; height:0; font:0/0 Arial; visibility:hidden; }
-        .none{ display:none }
-    </style>
+    <link rel="stylesheet" href="/css/login.css" type="text/css" media="all" /> <!-- Style-CSS -->
+    <link href='http://cdn.webfont.youziku.com/webfonts/nomal/116166/29854/5acb0373f629d904dc4f1177.css' rel='stylesheet' type='text/css' />
 </head>
 <body>
+        <div class="center-container">
+            <!--header-->
+            <div class="header-w3l">
+                <h1> Digital Library Login</h1>
+            </div>
+            <!--//header-->
+            <div class="main-content-agile">
+                <div class="sub-main-w3">
+                    <div class="wthree-pro">
+                        <h2>Login Quick</h2>
+                    </div>
 
+                    <div class="pom-agile">
+                        <input placeholder="UserName" name="Name" class="user" type="email" required="" id="logusername">
+                        <span class="icon1"><i class="fa fa-user" aria-hidden="true"></i></span>
+                    </div>
+                    <div class="pom-agile">
+                        <input  placeholder="Password" name="Password" class="pass" type="password" required="" id="logpassword">
+                        <span class="icon2"><i class="fa fa-unlock" aria-hidden="true"></i></span>
+                    </div>
+                    <div class="sub-w3l">
+                        <h6><a href="/auth/reg">New user?</a></h6>
+                        <div class="right-w3l login-btn">
+                            <input type="submit" value="Login" >
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!--//main-->
+            <!--footer-->
+            <div class="footer">
+                <p>&copy; 2017 Online Login Form. All rights reserved </p>
+            </div>
+        </div>
+        <!--
 
         <div class="registerBox">
         <input type="text" id="username"/>Username
@@ -38,10 +64,14 @@
             <input type="text" id="editpassword"/>现密码
         </div>
         <button class="editpassword-btn">修改密码</button>
+-->
 
 
 
         <script src="/js/index.js"></script>
+        <script>
+
+        </script>
 
 </body>
 </html>

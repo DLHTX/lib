@@ -8,11 +8,14 @@ var cheerio = require('cheerio');
 
 
 router.get('/log', function(req, res, next) {
-    res.render('log', { title: 'Express' });
+    res.render('log', { title: 'Login' });
 });
 
 
 
+router.get('/reg', function(req, res, next) {
+    res.render('reg', { title: 'Register' });
+});
 
 
 
@@ -140,6 +143,21 @@ router.post('/getbook', function(req, res) {
          res.send({status:0 ,data:data})
      }
     });
+
+
+router.post('/getbackimg', function(req, res) {
+    var idx = req.body.idx
+
+    var reptileUrl = "http://cn.bing.com/HPImageArchive.aspx?format=js&"+"idx="+idx+"&n=1";
+    superagent.get(reptileUrl).end(function (err, res){
+        console.log(idx)
+       send(res.text)
+    });
+    function send(data){
+        res.send({status:0 ,data:data})
+    }
+
+});
 
 
 
