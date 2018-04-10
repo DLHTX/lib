@@ -3,6 +3,7 @@ require('less/nav.less');
 require('less/section.less');
 require('less/toast.less');
 
+
 const http = require('https');
 const url = require('url');
 const urlencode = require('urlencode')
@@ -11,12 +12,31 @@ const urlencode = require('urlencode')
 var $ = require('../lib/jquery');
 var book = require('../mod/book').book;
 var Toast = require('../mod/toast').Toast
-
+var music = require('../mod/music.js').music;
 
 //
 // new carousel($('.carousel'))
-
+new music();
 new book();
+
+
+setInterval(function(){
+    var mydate = new Date();
+    var h=mydate.toLocaleString();
+    $("#time").text(h);
+},1000)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 $.post('/auth/getbook').done(function(ret){
@@ -47,7 +67,8 @@ $.post('auth/getbackimg',{idx : 0}).done(function(ret){
     var obj = $.parseJSON(ret.data)
     var bakurl = "http://cn.bing.com/"+obj.images[0].url
     $(".section").css({
-        background:"url( "+bakurl+")"
+        "background":"url( "+bakurl+") center center no-repeat",
+        "background-size":"cover"
     })
 })
 
@@ -194,7 +215,8 @@ $('#section1 .icon-next').on('click',function(){
         console.log("http://cn.bing.com/"+obj.images[0].url)
         var bakurl = "http://cn.bing.com/"+obj.images[0].url
         $(".section").css({
-            background:"url( "+bakurl+")"
+            "background":"url( "+bakurl+") center center no-repeat",
+            "background-size":"cover"
         })
     })
 })
@@ -212,7 +234,8 @@ $('#section1 .icon-pre').on('click',function(){
         console.log("http://cn.bing.com/"+obj.images[0].url)
         var bakurl = "http://cn.bing.com/"+obj.images[0].url
         $(".section").css({
-            background:"url( "+bakurl+")"
+            "background":"url( "+bakurl+") center center no-repeat",
+            "background-size":"cover"
         })
     })
 })
@@ -257,7 +280,7 @@ $.ajax({
 
 
 
-
+/*--------------------------------------------------------music-------------------------------------------------------------*/
 
 
 

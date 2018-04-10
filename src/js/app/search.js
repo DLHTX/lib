@@ -71,11 +71,17 @@ function setbook(ret){
      })
 
     $('.love').on('click',function(){
+        var _this = this
       $.post('/auth/love',{id:$(this).attr('data-id')}).done(function(ret){
           if(ret.status === 0){
-              Toast('添加成功');
-          }else{
+              Toast('收藏成功');
+              $(_this).addClass('loved').text('已收藏')
+          }if(ret.status === 1){
               Toast('请先登陆');
+              location.href='/auth/log'
+          }if(ret.status === 2){
+              Toast('您已收藏此书！请勿重复收藏');
+              $(_this).addClass('loved').text('已收藏')
           }
       })
     })

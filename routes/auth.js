@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var User = require('../models/user.js').User
-var session = require('express-session')
+var User = require('../models/user.js').User;
+var Userlove = require('../models/user.js').Userlove;
+var session = require('express-session');
 var passport = require('passport');//passport模块专门处理登录
 var superagent = require('superagent');
 var cheerio = require('cheerio');
@@ -17,6 +18,9 @@ router.get('/reg', function(req, res, next) {
     res.render('reg', { title: 'Register' });
 });
 
+router.get('/editpw', function(req, res, next) {
+    res.render('editpw', { title: 'editpassword' });
+});
 
 
 
@@ -51,7 +55,6 @@ router.post('/login', function(req, res, next){
             $and : [
                 {username : username},
                 {password : password}
-
             ]
         }
     }).then(function(user){
@@ -78,7 +81,6 @@ router.post('/login', function(req, res, next){
 
 router.post('/editpassword', function(req, res, next) {
         var username = req.body.username
-        var password = req.body.password
         var editpassword = req.body.editpassword
 
         User.update({password:editpassword },{where:{username:username}}).then(function(e){
@@ -94,16 +96,29 @@ router.post('/editpassword', function(req, res, next) {
 
 
 router.post('/love', function(req, res,next) {
-    console.log(req.session.user, req.session.user.username)
     if(!req.session.user){
        return res.send({status:1,msg:'请登陆'})
     }
+
     var username = req.session.user.username
     var love = req.body.id;
+    console.log(req.session.user, req.session.user.username)
 
-    User.create({love:love,username:username}).then(function(){
-            res.send({status:0 ,msg:'添加成功'})
-     })
+
+    Userlove.findAll({raw:true , where:{love:love,username:username}}).then(function(ret){
+        console.log(ret[0])
+        if(ret[0] !== undefined){
+            return res.send({status:2 ,msg:'已收藏'})
+        }else{
+            Userlove.create({love:love,username:username}).then(function(){
+                res.send({status:0 ,msg:'添加成功'})
+            })
+        }
+    });
+
+
+
+
 
     /*res.send({status:0})*/
 });
@@ -113,7 +128,7 @@ router.post('/love', function(req, res,next) {
 router.post('/getlove', function(req, res,next) {
     var username = req.session.user.username
 
-    User.findAll({raw:true,where:{username:username}}).then(function(ret){
+    Userlove.findAll({raw:true,where:{username:username}}).then(function(ret){
         res.send({status:0 ,msg:'添加成功',data:ret})
     })
 

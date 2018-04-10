@@ -6,6 +6,9 @@
   margin: 0;
   font-family:'Regencie';
 }
+.userDetailActive{
+  display:block!important;
+}
 .b {
   border:1px saddlebrown solid;
 }
@@ -20,11 +23,29 @@ li {
   list-style: none;
 }
 
-
+.userDetail{
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  width:15vh;
+  display:none;
+}
+.userDetail div{
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5vh!important;
+  transition:all .3s;
+}
+.userDetail div:hover{
+  background:rgb(200,200,200);
+  transition:all .3s;
+}
 
 .navbar {
   width: 100%;
-  background-color: white;
+  background-color: rgba(255,255,255,0.8);
   display: flex;
   align-items: center;
   position: fixed;
@@ -38,6 +59,7 @@ li {
   flex: 4;
   height:100%;
   display: flex;
+  position:relative;
 }
 
 .head div {

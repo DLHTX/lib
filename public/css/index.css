@@ -16,7 +16,7 @@
   align-items: center;
 }
 .section {
-  background: url("http://cn.bing.com/az/hprichbg/rb/SevenMagicMountains_ZH-CN9207394593_1920x1080.jpg") center center repeat;
+  background: url("http://cn.bing.com/az/hprichbg/rb/SevenMagicMountains_ZH-CN9207394593_1920x1080.jpg") center center no-repeat;
   background-size: cover;
   height: 100vh;
   position: relative;
@@ -47,7 +47,7 @@
   outline: none!important;
   border: none;
   border-radius: 8vh;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.83);
   height: 5vh;
   width: 36vh;
   padding-left: 1vh;
@@ -71,6 +71,15 @@
   position: absolute;
   top: 45%;
   left: 85%;
+  transform: translate(-50%, -50%);
+}
+#time {
+  position: absolute;
+  font-size: 2vh;
+  color: white;
+  font-weight: 500;
+  top: 30%;
+  left: 50%;
   transform: translate(-50%, -50%);
 }
 #section1 .icon-pre {
@@ -1740,6 +1749,36 @@ table {
 td,
 th {
   padding: 0;
+}
+#music {
+  border-radius: 1vh 1vh 0 0;
+  height: 7vh;
+  position: fixed;
+  top: 97%;
+  left: 50%;
+  width: 50vh;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  background: #fefefe;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+#music .icon {
+  color: #454545;
+  transition: all .3s;
+}
+#music .icon .iconfont {
+  font-size: 4vh;
+  cursor: pointer;
+  margin: 0 2vh;
+}
+#music .icon .iconfont:hover {
+  color: #49c5b6;
+  transition: all .3s;
 }
 .toast {
   position: fixed;

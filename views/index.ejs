@@ -8,6 +8,8 @@
     <meta charset="UTF-8">
     <title>首页</title>
     <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_597783_05fq0u39vuprdx6r.css">
+
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_560878_uxig1w9izfr.css">
     <link href='http://cdn.webfont.youziku.com/webfonts/nomal/116166/46721/5ac1e59af629d8115c09a338.css' rel='stylesheet' type='text/css' />
     <link href='http://cdn.webfont.youziku.com/webfonts/nomal/116166/41871/5ac1e570f629d8115c09a336.css' rel='stylesheet' type='text/css' />
     <link href='http://cdn.webfont.youziku.com/webfonts/nomal/116166/46865/5ac1e840f629d8115c09a342.css' rel='stylesheet' type='text/css' />
@@ -27,6 +29,13 @@
 </head>
 <body>
 
+<div id="music">
+    <div class="icon">
+        <span class="iconfont icon-houtui"></span>
+        <span class="song-status iconfont icon-play"></span>
+        <span class="iconfont icon-qianjin"></span>
+    </div>
+</div>
 <nav class="navbar " >
     <div class="right " >
         <div class="shrink shrink-out">
@@ -42,7 +51,6 @@
         <a href="#page3" data-menuanchor="page3">SERVE</a>
         <a href="#page4" data-menuanchor="page4">HELP</a>
         <a href="#page5">DETAIL</a>
-        <a href="#page6 ">MY BOOK</a>
     </div>
 
    <!-- 移动端导航-->
@@ -53,18 +61,23 @@
             <li><a href="#">RESOURCE</a></li>
             <li><a href="#">SERVE</a></li>
             <li><a href="#">DETAIL</a></li>
-            <% if(isLogin){%>
-            <li><a href="#">MY BOOK</a></li>
-            <% }%>
         </ul>
     </div>
 
     <!--登陆注册按钮-->
     <% if(isLogin){%>
     <div class="head">
-        <div class="login"><a href="#">你好</a></div>
-        <div class="sign-up"><a href="#"><%=user.username %></a></div>
-        <div class="login"><a href="/auth/logout">注销</a></div>
+
+        <div class="userDetail">
+            <div class="mylove">My Book</div>
+            <div class="logout"><a href="http://dlhtx.top/">Note</a></div>
+            <div class="logout"><a href="https://dlhtx.github.io/music/">Music</a></div>
+            <div class="changePw"><a href="/auth/editpw">EditPassword</a></div>
+            <div class="logout"><a href="/auth/logout">Logout</a></div>
+        </div>
+        <div class="login" id="username"><a href="" onclick="return false"><%=user.username %></a></div>
+        <div class="sign-up"><a href="">Welcome</a>
+        </div>
     </div>
     <%}else{ %>
     <div class="head">
@@ -79,6 +92,7 @@
 
 
 <div class="section" id="section1">
+    <p id="time"></p>
     <span class="iconfont icon-next"></span>
     <span class="iconfont icon-pre"></span>
     <div class="container ">
@@ -647,6 +661,30 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script>
     $(document).ready(function() {
          //手机端隐藏项目导航 PC端显示
@@ -657,7 +695,7 @@
                 anchors: ['page1', 'page2', 'page3', 'page4','page5','page6'],
                 menu: '#menu',
                 navigation:true,
-                scrollingSpeed:300,
+                scrollingSpeed:600,
                 verticalCentered:true,
                 loopBottom:true,
                 paddingTop:"65px"
@@ -671,7 +709,7 @@
                 anchors: ['page1', 'page2', 'page3', 'page4'],
                 menu: '#menu',
                 navigation:false,
-                scrollingSpeed:700,
+                scrollingSpeed:600,
                 verticalCentered:true,
                 loopBottom:true,
                 paddingTop:"20px"
@@ -705,6 +743,16 @@
 
 
         // 检索
+        $('#username').on('click',function(){
+            $('.userDetail').toggleClass('userDetailActive')
+        })
+        $('.userDetail').on('mouseleave',function(){
+            $('.userDetail').removeClass('userDetailActive')
+            console.log('mouseleave')
+        })
+        
+        
+        
         $(".search-box input").focus(function () {
             console.log('aaa')
             $('.searchBtn').css({

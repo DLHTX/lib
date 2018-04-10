@@ -78,7 +78,7 @@ module.exports = __webpack_amd_options__;
 /***/ 19:
 /***/ (function(module, exports, __webpack_require__) {
 
-var $ = __webpack_require__(5);
+var $ = __webpack_require__(3);
 var Event = __webpack_require__(20);
 var Toast = __webpack_require__(8).Toast
 
@@ -151,11 +151,17 @@ function setbook(ret){
      })
 
     $('.love').on('click',function(){
+        var _this = this
       $.post('/auth/love',{id:$(this).attr('data-id')}).done(function(ret){
           if(ret.status === 0){
-              Toast('添加成功');
-          }else{
+              Toast('收藏成功');
+              $(_this).addClass('loved').text('已收藏')
+          }if(ret.status === 1){
               Toast('请先登陆');
+              location.href='/auth/log'
+          }if(ret.status === 2){
+              Toast('您已收藏此书！请勿重复收藏');
+              $(_this).addClass('loved').text('已收藏')
           }
       })
     })
@@ -202,7 +208,7 @@ module.exports = EventCenter
 
 /***/ }),
 
-/***/ 5:
+/***/ 3:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! jQuery v2.1.1 | (c) 2005, 2014 jQuery Foundation, Inc. | jquery.org/license */
@@ -217,7 +223,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! jQuery v2.1.
 /***/ 8:
 /***/ (function(module, exports, __webpack_require__) {
 
-var $ = __webpack_require__(5);
+var $ = __webpack_require__(3);
 
 __webpack_require__(9)
 
