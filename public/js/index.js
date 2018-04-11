@@ -12002,7 +12002,8 @@ book.prototype = {
     search:function(){
         if(this.searchContent ){
            /* $(location).attr('href', 'http://localhost:3012/auth/search?q='+this.searchContent)*/
-            window.open('http://localhost:3012/auth/search?q='+this.searchContent);
+            /*console.log(window.location.href)*/
+            window.open(window.location.href+'auth/search?q='+this.searchContent);
         }else{
             Toast('输入值不能为空')
         }
