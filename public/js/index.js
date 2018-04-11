@@ -11786,7 +11786,7 @@ book.prototype = {
                     var aa=new zturn({
                         id:"zturn",
                         opacity:0.9,
-                        width:450,
+                        width:382,
                         //382
                         Awidth:1024,
                         scale:0.95
