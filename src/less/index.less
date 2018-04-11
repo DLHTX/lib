@@ -1,3 +1,99 @@
+.loved{
+  background-color:#4d4d4d!important;
+  cursor:initial!important;
+}
+
+.lovebook{
+  margin:0 auto;
+  padding:0 20vh;
+  display:flex;
+  justify-content:space-around;
+  flex-wrap:wrap;
+  span{
+    color:white;
+  }
+}
+
+.bookBox{
+  margin:5vh 0vh;
+  width:235px;
+  height:364px;
+  position:relative;
+  transition:all .3s;
+  border-radius:3px;
+  overflow:hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,.2);
+  background: rgba(255, 255, 255, 0.79);
+}
+.bookBox:hover{
+  box-shadow: 0 1px 4px rgba(0,0,0,.5);
+  transition:all .3s
+}
+
+img{
+  position:absolute;
+  top:-40%;
+  left:0;
+  right:0;
+  width:235px;
+  height: 350px;
+
+}
+.detail{
+  position:absolute;
+  top:50%;
+  left:0;
+  right:0;
+  width:235px;
+  height:235px;
+  z-index:10;
+}
+h3{
+  color:rgb(80,80,80);
+  margin:28px 0 0 10px;
+  font-size: 2vh;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.detail p{
+  font-size:1vh;
+  margin: 3px 0 3px 10px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+
+}
+.price{
+  color:rgb(220,20,60);
+  margin-left:10px;
+}
+
+.love{
+  font-size:10px;
+  height:25px;
+  width:55px;
+  background-color:rgb(220,20,60);
+  position:absolute;
+  top:88%;
+  left:70%;
+  border-radius:3px;
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  cursor:pointer;
+  transition:all .3s;
+  z-index:10;
+}
+.love:hover{
+  background-color:rgb(180,20,60);
+  transition:all .3s;
+}
+
+
+
+
 
 /*内容超出显示省略号-----------------------------------------page1*/
 *{
@@ -36,6 +132,7 @@
 .timing,
 .search-box {
   display: flex;
+  flex-wrap:wrap;
 }
 
 
@@ -1299,7 +1396,7 @@ btns:hover{
   #section4 .main-box {
     height:450px;
     width:980px;
-    border-radius: 15px;
+    border-radius: 5px;
     background-color: #fdfdfd;
   }
   #section4 .header {
@@ -1325,7 +1422,7 @@ btns:hover{
     display: inline-block;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
-    border-radius: 5px;
+    border-radius: 1px;
     width:192px;
     height:42px;
     border: 1px solid #6C6C6C;
@@ -1410,6 +1507,7 @@ btns:hover{
     width:290px;
     border-radius: 8px;
     background-color: #fdfdfd;
+    font-family: "Microsoft YaHei"!important;
 
   }
   #section4 .header {
@@ -1420,6 +1518,7 @@ btns:hover{
     align-items: center;
     border-radius: 8px 8px 0 0;
     border-bottom: 1px solid #b8b8b8;
+    font-family: "Microsoft YaHei"!important;
   }
   #section4 .main {
     height:140px;
@@ -1430,6 +1529,7 @@ btns:hover{
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    font-family: "Microsoft YaHei"!important;
   }
   #section4 .main a {
     display: inline-block;
@@ -1442,11 +1542,13 @@ btns:hover{
     border: 1px solid #6C6C6C;
     line-height: 24px;
     text-align: center;
+    font-family: "Microsoft YaHei"!important;
     color:black;
     font-size: 12px;
   }
 
   #section4 .buttom {
+
     width:250px;
     height:210px;
     -webkit-border-radius:6px;
@@ -1454,6 +1556,7 @@ btns:hover{
     border-radius: 6px;
     margin: 5px auto 10px auto;
     background-color: #efefef;
+    font-family: "Microsoft YaHei";
   }
   .buttom .list {
     widtn:100%;
@@ -1912,12 +2015,11 @@ th {
 }
 
 
-
 #music{
   border-radius: 1vh 1vh 0 0;
   height: 7vh;
   position: fixed;
-  top: 97%;
+  top: 102%;
   left: 50%;
   width: 50vh;
   transform: translate(-50%,-50%);
@@ -1926,7 +2028,12 @@ th {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition:all .3s;
 
+  &:hover{
+    top: 97%;
+    transition:all .3s
+  }
   .icon{
     color:#454545;
     transition:all .3s;
@@ -1944,3 +2051,172 @@ th {
 
 }
 
+
+/*轮播*/
+
+
+.container3{width: 1024px;margin:15vh auto;position: relative;}
+.pictureSlider{height: 518px;margin-bottom: 24px;}
+.poster-item{background: #fff;height: 453px;width:336px;border-radius: 3px;padding:45px 23px 20px 23px;
+  transition: all 0.5s;cursor: default;
+  -moz-transition: all 0.5s;cursor: default;
+  -webkit-transition: all 0.5s;cursor: default;
+  -o-transition: all 0.5s;cursor: default;
+}
+.turn_3d{text-align: center;color: #fff;font-weight: 400;font-size: 36px;padding: 28px 0;  font-family: "Microsoft YaHei";}
+.xxgy{
+  font-size: 30px;
+  font-family: "Microsoft YaHei";
+  padding-left: 10px;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  margin-bottom: 2vh;
+}
+.poster-item .say{font-size: 18px;margin-bottom: 5px;padding-left: 10px;}
+.students_star{padding:10px 10px 0 10px ;}
+.cell_list{
+  margin-bottom: 20px;
+  color:#999;font-size:18px;overflow: hidden;
+  font-family: "Microsoft YaHei";
+  margin-top: 2vh;}
+.darks{color: #000;padding-left: 10px;}
+.zwjs{border-top:1px solid #d0cddb;line-height: 26px;padding-top: 5px;color: #999;font-size: 12px;max-height: 84px;overflow: hidden;}
+.for_btn{position: relative;height:214px;overflow:hidden}
+.in_page{position: absolute;left: 50%;top:50%;width:40px;height: 40px;margin-left: -20px;margin-top: -20px;}
+img{width: 300px;}
+
+.check_more{width: 180px;height: 50px;line-height: 50px;text-align: center;color:#fff;background: #bc241d;margin:0 auto;display: block;}
+
+
+
+
+
+.flexslider {
+  margin: 0px auto 20px;
+  position: relative;
+  width: 100%;
+  height: 482px;
+  overflow: hidden;
+  zoom: 1;
+}
+
+.flexslider .slides li {
+  width: 100%;
+  height: 100%;
+}
+
+.flex-direction-nav a {
+  width: 70px;
+  height: 70px;
+  line-height: 99em;
+  overflow: hidden;
+  margin: -35px 0 0;
+  display: block;
+  background: url("/images/ad_ctr.png") no-repeat;
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: all .3s ease;
+  border-radius: 35px;
+}
+
+.flex-direction-nav .flex-next {
+  background-position: 0 -70px;
+  right: 0;
+}
+
+.flex-direction-nav .flex-prev {
+  left: 0;
+}
+
+.flexslider:hover .flex-next {
+  opacity: 0.8;
+  filter: alpha(opacity=25);
+}
+
+.flexslider:hover .flex-prev {
+  opacity: 0.8;
+  filter: alpha(opacity=25);
+}
+
+.flexslider:hover .flex-next:hover,
+.flexslider:hover .flex-prev:hover {
+  opacity: 1;
+  filter: alpha(opacity=50);
+}
+
+.flex-control-nav {
+  width: 100%;
+  position: absolute;
+  bottom: 10px;
+  text-align: center;
+}
+
+.flex-control-nav li {
+  margin: 0 2px;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+}
+
+.flex-control-paging li a {
+  background: url("/images/ad_ctr.png") no-repeat 0 -16px;
+  display: block;
+  height: 16px;
+  overflow: hidden;
+  text-indent: -99em;
+  width: 16px;
+  cursor: pointer;
+}
+
+.flex-control-paging li a.flex-active,
+.flex-control-paging li.active a {
+  background-position: 0 0;
+}
+
+.flexslider .slides a img {
+  width: 80%;
+  height: 180%;
+  display: block;
+  margin: 0 auto;
+}
+
+
+@media screen and (max-width:768px) {
+  .container3 {
+    width: 496px!important;
+    margin: -8vh auto!important;;
+    position: relative;
+  }
+
+  .turn_3d {
+    text-align: center;
+    margin-right: 99px;
+    color: #fff;
+    font-weight: 400;
+    font-size: 21px;
+    padding: 38px 18px;
+    font-family: "Microsoft YaHei";
+  }
+
+  .lovebook{
+    margin:0 auto;
+    padding:0 20vh;
+  }
+  .bookBox {
+    margin: 5vh -5vh;
+    width: 191px;
+    height: 313px;
+    position: relative;
+    transition: all .3s;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.79);
+  }
+
+}

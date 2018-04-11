@@ -70,6 +70,7 @@ function setbook(ret){
                   $('.container').append($book);
      })
 
+
     $('.love').on('click',function(){
         var _this = this
       $.post('/auth/love',{id:$(this).attr('data-id')}).done(function(ret){
@@ -85,6 +86,74 @@ function setbook(ret){
           }
       })
     })
+
+
+
+
+    $('.login-btn').on('click',function(){
+        var username = $('#logusername').val()
+        var password =  $('#logpassword').val()
+        $.ajax({
+            url:'/auth/login',
+            type:'POST',
+            data:{
+                username:username,
+                password:password
+            }
+        }).done(function(ret){
+            if(ret.status === 0){
+                Toast('登陆成功!');
+                location.href='/'
+            } else if (ret.status === 2){
+                Toast('用户名或密码不正确')
+            }
+        });
+    })
+
+
+    $('.editpassword-btn').on('click',function(){
+        var username = $('#editusername').val()
+        var editpassword = $('#editpassword').val()
+        $.ajax({
+            url:'/auth/editpassword',
+            type:'POST',
+            data:{
+                username:username,
+                editpassword:editpassword
+            }
+        }).done(function(ret){
+            if(ret.status === 0){
+                Toast('修改成功!');
+                location.href='/'
+            } else if (ret.status === 2){
+                Toast('用户名不正确')
+            }
+        });
+    })
+
+
+    $('.getlove').on('click',function(){
+        $.post('auth/getlove').done(function(ret){
+            if(ret.status === 0){
+                ret.data.forEach(function(data){
+                    $.ajax({
+                        url:'https://api.douban.com/v2/book/'+data.love,
+                        type:'GET',
+                        dataType:'jsonp'
+                    }).done(function(ret){
+                        console.log(ret)
+                        $('#container').XSwitch({
+                            index: 0
+                        });
+                    })
+                })
+                Toast('查询成功')
+            } else if (ret.status === 1){
+                Toast('不成功')
+            }
+        })
+    })
+
 
 
 
