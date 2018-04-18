@@ -2,6 +2,12 @@
   background-color: #4d4d4d!important;
   cursor: initial!important;
 }
+body {
+  -webkit-user-select: none!important;
+  -moz-user-select: none!important;
+  -ms-user-select: none!important;
+  user-select: none!important;
+}
 .lovebook {
   margin: 0 auto;
   padding: 0 20vh;
@@ -136,6 +142,12 @@ h3 {
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
+.icon-sousuo {
+  font-size: 2vh!important;
+}
+.icon-denglu {
+  font-size: 3vh!important;
+}
 /*输入框*/
 .search-box input {
   outline: none!important;
@@ -148,6 +160,55 @@ h3 {
   font-size: 2vh;
   font-family: 'Regencie';
   position: relative;
+  animation: width .5s ;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+}
+@keyframes width {
+  0% {
+    width: 0vh;
+    background-color: #49c5b6;
+  }
+  10% {
+    width: 3.6vh;
+    background-color: #53c3b6;
+  }
+  20% {
+    width: 7.2vh;
+    background-color: #64c3b8;
+  }
+  30% {
+    width: 10.8vh;
+    background-color: #7cc7bf;
+  }
+  40% {
+    width: 14.4vh;
+    background-color: #93d0c9;
+  }
+  50% {
+    width: 18vh;
+    background-color: #a3d0cb;
+  }
+  60% {
+    width: 21.6vh;
+    background-color: #b9d4d1;
+  }
+  70% {
+    width: 25.2vh;
+    background-color: #cbd8d7;
+  }
+  80% {
+    width: 28.8vh;
+    background-color: #e7f1f0;
+  }
+  90% {
+    width: 32.4vh;
+    background-color: #ffffff;
+  }
+  100% {
+    width: 36vh;
+    background-color: #ffffff;
+  }
 }
 .search-group {
   position: absolute;
@@ -1866,6 +1927,7 @@ th {
   -ms-flex-align: center;
   align-items: center;
   transition: all .3s;
+  animation: blink 2.5s infinite;
 }
 #music:hover {
   top: 97%;
@@ -2088,6 +2150,29 @@ img {
     overflow: hidden;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     background: rgba(255, 255, 255, 0.79);
+  }
+}
+@keyframes blink {
+  0% {
+    background-color: #ffffff;
+  }
+  15% {
+    background-color: #dcdcdc;
+  }
+  25% {
+    background-color: #c8c8c8;
+  }
+  50% {
+    background-color: #969696;
+  }
+  65% {
+    background-color: #c8c8c8;
+  }
+  85% {
+    background-color: #dcdcdc;
+  }
+  100% {
+    background-color: #ffffff;
   }
 }
 .toast {

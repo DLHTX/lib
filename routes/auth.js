@@ -160,6 +160,29 @@ router.post('/getbook', function(req, res) {
     });
 
 
+
+router.post('/getCarimg', function(req, res) {
+    var reptileUrl = "https://market.douban.com/book/";
+    superagent.get(reptileUrl).end(function (err, res){
+        var $ = cheerio.load(res.text);
+        var data = [];
+        $('#slide_box ul li').each(function(i, elem){
+            var _this = $(elem);
+            data.push({
+                href : _this.find('.img').attr('data-url').replace(/\/p\//, ""),
+                img : _this.find('.img a img').attr('src').replace(/\/p\//, ""),
+            });
+        });
+        console.log(data)
+        send(data)
+    });
+    function send(data){
+        res.send({status:0 ,data:data})
+    }
+});
+
+
+
 router.post('/getbackimg', function(req, res) {
     var idx = req.body.idx
 

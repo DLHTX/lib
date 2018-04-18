@@ -7,17 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta charset="UTF-8">
     <title>首页</title>
-    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_597783_05fq0u39vuprdx6r.css">
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_560878_uxig1w9izfr.css">
+    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_597783_o83betqwzsemi.css">
+
     <link href='http://cdn.webfont.youziku.com/webfonts/nomal/116166/46721/5ac1e59af629d8115c09a338.css' rel='stylesheet' type='text/css' />
     <link href='http://cdn.webfont.youziku.com/webfonts/nomal/116166/41871/5ac1e570f629d8115c09a336.css' rel='stylesheet' type='text/css' />
     <link href='http://cdn.webfont.youziku.com/webfonts/nomal/116166/46865/5ac1e840f629d8115c09a342.css' rel='stylesheet' type='text/css' />
     <link href='http://cdn.webfont.youziku.com/webfonts/nomal/116166/35481/5ac1e4ecf629d8115c09a335.css' rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_597783_05fq0u39vuprdx6r.css">
     <link rel="stylesheet" href="/css/jquery.fullPage.css">
     <link rel='stylesheet' href='/css/index.css' />
     <link rel='stylesheet' href='/css/nav.css' />
-
+    <link rel="stylesheet" href="/css/animate.css">
     <link href='http://cdn.webfont.youziku.com/webfonts/nomal/116166/29854/5acb0373f629d904dc4f1177.css' rel='stylesheet' type='text/css' />
    <!-- font-family:'Bebas';-->
 
@@ -45,11 +44,14 @@
 
     <!--PC端导航-->
     <div class="nav" id="menu" >
-        <a href="#page1" data-menuanchor="page1">HOME</a>
-        <a href="#page2" data-menuanchor="page2">RESOURCE</a>
-        <a href="#page3" data-menuanchor="page3">SERVE</a>
-        <a href="#page4" data-menuanchor="page4">HELP</a>
-        <a href="#page5">DETAIL</a>
+        <a href="#page1" data-menuanchor="page1">Home</a>
+        <a href="#page2" data-menuanchor="page2">Resouce</a>
+        <a href="#page3" data-menuanchor="page3">LastBook</a>
+        <a href="#page4" data-menuanchor="page4">Other</a>
+        <% if(isLogin){%>
+        <a href="#page5">MyBook</a>
+        <% }%>
+
     </div>
 
    <!-- 移动端导航-->
@@ -81,7 +83,7 @@
     </div>
     <%}else{ %>
     <div class="head">
-        <div class="login"><a href=/auth/log>LOGIN</a></div>
+        <div class="login"><a href=/auth/log><span class="iconfont icon-denglu"></span></a></div>
         <div class="sign-up"><a href=/auth/reg>REGISTER</a></div>
     </div>
     <% }%>
@@ -99,23 +101,17 @@
         <!--搜索-->
         <div class="search-group  ">
             <div class="search-box flex">
-                <input  type="text" placeholder="输入关键词检索"  class="search-content">
+                <input  type="text" placeholder="输入关键词检索"  class="search-content"  x-webkit-speech = "" lang="zh-CN">
             </div>
             <div class="searchBtn flex">
+                <span class="iconfont icon-sousuo"></span>
                 <span class="news"> </span>
             </div>
         </div>
         <!--新闻-->
         <div class=" news-box">
             <ul id="news-ul">
-                <li class="news-li"><a class="news" href="#">广州图书馆2018年流动图书馆服务安排</a></li>
-                <li class="news-li"><a class="news" href="#">中华人民共和国公共图书馆法</a></li>
-                <li class="news-li"><a class="news" href="#">欢迎测试智能咨询和在线咨询服务</a></li>
-                <li class="news-li"><a  class="news" href="#">“恋上图书馆”知识竞赛活动获奖名单</a></li>
-                <li class="news-li"><a class="news" href="#">寻询善解，问津有道——智能咨询和在线咨询服务全新推出</a></li>
-                <li class="news-li"><a class="news" href="#">关于外文、艺术、港台等室调整开放时间的通知</a></li>
-                <li class="news-li"><a class="news" href="#">图书馆就在您身边——图书馆汽车图书馆通借通还服务启动</a></li>
-                <li class="news-li"><a class="news" href="#">认真学习贯彻统计法律法规　切实提高统计法制观念</a></li>
+
             </ul>
         </div>
     </div>
@@ -125,21 +121,12 @@
 <div class="container">
             <div id="banner_tabs" class="flexslider">
                 <ul class="slides">
-                    <li>
-                        <a title="" target="_blank" href="#">
-                            <img width="1920" height="482" alt="" style="background: url(images/banner1.jpg) no-repeat center;" src="images/alpha.png">
-                        </a>
-                    </li>
-                    <li>
+                 <!--   <li>
                         <a title="" href="#">
-                            <img width="1920" height="482" alt="" style="background: url(images/banner2.jpg) no-repeat center;" src="images/alpha.png">
+                            <img width="1920" height="482" alt="" style=" background: url(images/banner3.jpg) no-repeat center;" src="images/alpha.png">
                         </a>
-                    </li>
-                    <li>
-                        <a title="" href="#">
-                            <img width="1920" height="482" alt="" style="background: url(images/banner3.jpg) no-repeat center;" src="images/alpha.png">
-                        </a>
-                    </li>
+                    </li>-->
+
                 </ul>
                 <ul class="flex-direction-nav">
                     <li><a class="flex-prev" href="javascript:;">Previous</a></li>
@@ -157,7 +144,7 @@
 <!--页面3-->
 <div class="section" id="section3">
     <div class="container3">
-        <h1 class="turn_3d">这是最近的新书，来看看吧</h1>
+        <h1 class="turn_3d">The Laster Book</h1>
         <div class="pictureSlider poster-main">
             <div class="poster-btn poster-prev-btn"></div>
             <ul id="zturn" class="poster-list">
@@ -295,10 +282,12 @@
     </div>
 </div>
 <!--页面5-->
+<% if(isLogin){%>
 <div class="section" id="section5">
     <div class="lovebook">
     </div>
 </div>
+<% }%>
 
 
 
@@ -417,7 +406,8 @@
 
         // 检索
         $('#username').on('click',function(){
-            $('.userDetail').toggleClass('userDetailActive')
+            $('.userDetail').toggleClass('userDetailActive');
+
         })
         $('.userDetail').on('mouseleave',function(){
             $('.userDetail').removeClass('userDetailActive')

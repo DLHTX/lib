@@ -72,6 +72,52 @@ book.prototype = {
             })
         })
 
+        $.ajax({
+            url: 'https://platform.sina.com.cn/slide/album_tech',
+            dataType: 'jsonp',
+            jsonp:"jsoncallback",
+            data: {
+                app_key: '1271687855',
+                num:17,
+                page:1
+            }
+        }).done(function (ret) {
+           ret.data.forEach(function(news){
+               var tpl = ` <li class="news-li"><a class="news" href="#" target="_blank"></a></li>`
+               this.$new = $(tpl)
+               this.$new.find('a').text(news.name)
+               this.$new.find('a').attr("href",news.url)
+               $("#news-ul").append(this.$new)
+           })
+        }).fail(function () {
+            console.log('404')
+        }).always(function () {
+            isLoading = false
+        })
+
+        $.post('auth/getCarimg').done(function(ret){
+            if(ret.status === 0){
+                console.log(ret)
+                ret.data.forEach(function(carimg){
+                    var tpl = `  <li>
+                        <a title="" href="">
+                            <img width="1920" height="482" alt=""  src="images/alpha.png">
+                        </a>
+                    </li>`
+
+                    this.$img = $(tpl)
+                    this.$img.find(" a").attr("href",carimg.href)
+                    this.$img.find(" a img").attr("style","background: url('"+ carimg.img +"') no-repeat center;")
+                    $("#banner_tabs ul").append(this.$img)
+
+
+
+
+                })
+            }
+        })
+
+
 
     },
     bind:function(){
@@ -262,7 +308,9 @@ book.prototype = {
         if(this.searchContent ){
            /* $(location).attr('href', 'http://localhost:3012/auth/search?q='+this.searchContent)*/
             /*console.log(window.location.href)*/
-            window.open(window.location.href+'auth/search?q='+this.searchContent);
+            var url = (window.location.href).replace(/#page1/,'')
+            console.log(url)
+            window.open(url+'auth/search?q='+this.searchContent);
         }else{
             Toast('输入值不能为空')
         }
