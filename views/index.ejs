@@ -19,8 +19,7 @@
     <link rel="stylesheet" href="/css/animate.css">
     <link href='http://cdn.webfont.youziku.com/webfonts/nomal/116166/29854/5acb0373f629d904dc4f1177.css' rel='stylesheet' type='text/css' />
    <!-- font-family:'Bebas';-->
-
-
+    <link rel="stylesheet" type="text/css" href="/css/lbt.css">
 
 
 
@@ -118,27 +117,16 @@
 </div>
 <!--页面2-->
 <div class="section" id="section2">
-<div class="container">
-            <div id="banner_tabs" class="flexslider">
-                <ul class="slides">
-                 <!--   <li>
-                        <a title="" href="#">
-                            <img width="1920" height="482" alt="" style=" background: url(images/banner3.jpg) no-repeat center;" src="images/alpha.png">
-                        </a>
-                    </li>-->
-
-                </ul>
-                <ul class="flex-direction-nav">
-                    <li><a class="flex-prev" href="javascript:;">Previous</a></li>
-                    <li><a class="flex-next" href="javascript:;">Next</a></li>
-                </ul>
-                <ol id="bannerCtrl" class="flex-control-nav flex-control-paging">
-                    <li><a>1</a></li>
-                    <li><a>2</a></li>
-                    <li><a>2</a></li>
-                </ol>
-            </div>
-</div>
+    <div class="carousel-content">
+        <ul class="carousel">
+        <!--    <li><img src="/images/a1.png"></li>-->
+          <!--  <li><img src="/images/a2.png"></li>
+            <li><img src="/images/a3.png"></li>
+            <li><img src="/images/a4.png"></li>
+            <li><img src="/images/a5.png"></li>-->
+        </ul>
+        <ul class="img-index"></ul>
+    </div>
 </div>
 
 <!--页面3-->
@@ -294,6 +282,7 @@
 <p class="right">Powered by © 2018</p>
 <script src="/js/jquery.js"></script>
 <script src="/js/jquery.fullPage.min.js"></script>
+<script type="text/javascript" src="/js/carousel.js"></script>
 <script src="/js/jquery-ui-1.10.3.min.js"></script>
 <script src="/js/slider.js"></script>
 <script src="/js/zturn.js"></script>
@@ -326,24 +315,16 @@
 
 
 <script>
+       setTimeout(function(){
+           $(".carousel-content").carousel({
+               carousel : ".carousel",//轮播图容器
+               indexContainer : ".img-index",//下标容器
+               timing : 4000,//自动播放间隔
+               animateTime : 800,//动画时间
+               auto : true,//是否自动播放
+           });
+       },1000)
 
-    $(function() {
-        var bannerSlider = new Slider($('#banner_tabs'), {
-            time: 5000,
-            delay: 400,
-            event: 'hover',
-            auto: true,
-            mode: 'fade',
-            controller: $('#bannerCtrl'),
-            activeControllerCls: 'active'
-        });
-        $('#banner_tabs .flex-prev').click(function() {
-            bannerSlider.prev()
-        });
-        $('#banner_tabs .flex-next').click(function() {
-            bannerSlider.next()
-        });
-    })
 
 
 

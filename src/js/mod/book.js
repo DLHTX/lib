@@ -101,14 +101,16 @@ book.prototype = {
                 ret.data.forEach(function(carimg){
                     var tpl = `  <li>
                         <a title="" href="">
-                            <img width="1920" height="482" alt=""  src="images/alpha.png">
+                            <img src="images/alpha.png">
                         </a>
                     </li>`
 
                     this.$img = $(tpl)
                     this.$img.find(" a").attr("href",carimg.href)
-                    this.$img.find(" a img").attr("style","background: url('"+ carimg.img +"') no-repeat center;")
-                    $("#banner_tabs ul").append(this.$img)
+                  /*  this.$img.find("  img").attr("style","background: url('"+ carimg.img +"') no-repeat center;")*/
+                    this.$img.find("  img").attr('src',carimg.img)
+                    $(".carousel-content .carousel ").append(this.$img)
+
 
 
 
