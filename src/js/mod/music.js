@@ -3,7 +3,7 @@ var $ = require('../lib/jquery');
 function music(){
     this.audio = new Audio()
     this.bind()
-    this.audio.autoplay = true
+    this.audio.autoplay = false
     this.channelid = 'public_tuijian_rege'
     this.getmusic()
     console.log('music')

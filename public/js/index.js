@@ -6582,7 +6582,7 @@ new book();
 
 setInterval(function(){
     var mydate = new Date();
-    var h=mydate.toLocaleString();
+    var h=mydate.toLocaleDateString();
     $("#time").text(h);
 },1000)
 
@@ -12076,7 +12076,7 @@ var $ = __webpack_require__(3);
 function music(){
     this.audio = new Audio()
     this.bind()
-    this.audio.autoplay = true
+    this.audio.autoplay = false
     this.channelid = 'public_tuijian_rege'
     this.getmusic()
     console.log('music')

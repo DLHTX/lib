@@ -22,7 +22,7 @@ new book();
 
 setInterval(function(){
     var mydate = new Date();
-    var h=mydate.toLocaleString();
+    var h=mydate.toLocaleDateString();
     $("#time").text(h);
 },1000)
 

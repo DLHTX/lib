@@ -6,8 +6,10 @@
     <!--图片盗链问题 非常重要-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta charset="UTF-8">
-    <title>首页</title>
+    <title>数字图书馆</title>
     <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_597783_o83betqwzsemi.css">
+
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 
     <link href='http://cdn.webfont.youziku.com/webfonts/nomal/116166/46721/5ac1e59af629d8115c09a338.css' rel='stylesheet' type='text/css' />
     <link href='http://cdn.webfont.youziku.com/webfonts/nomal/116166/41871/5ac1e570f629d8115c09a336.css' rel='stylesheet' type='text/css' />
@@ -43,10 +45,10 @@
 
     <!--PC端导航-->
     <div class="nav" id="menu" >
-        <a href="#page1" data-menuanchor="page1">Home</a>
-        <a href="#page2" data-menuanchor="page2">Resouce</a>
-        <a href="#page3" data-menuanchor="page3">LastBook</a>
-        <a href="#page4" data-menuanchor="page4">Other</a>
+        <a href="#page1" data-menuanchor="page1">首页</a>
+        <a href="#page2" data-menuanchor="page2">资源</a>
+        <a href="#page3" data-menuanchor="page3">书籍</a>
+        <a href="#page4" data-menuanchor="page4">其他</a>
         <% if(isLogin){%>
         <a href="#page5">MyBook</a>
         <% }%>
@@ -83,7 +85,7 @@
     <%}else{ %>
     <div class="head">
         <div class="login"><a href=/auth/log><span class="iconfont icon-denglu"></span></a></div>
-        <div class="sign-up"><a href=/auth/reg>REGISTER</a></div>
+        <div class="sign-up"><a href=/auth/reg>注册</a></div>
     </div>
     <% }%>
 </nav>
