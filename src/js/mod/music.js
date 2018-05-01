@@ -3,7 +3,7 @@ var $ = require('../lib/jquery');
 function music(){
     this.audio = new Audio()
     this.bind()
-    this.audio.autoplay = false
+
     this.channelid = 'public_tuijian_rege'
     this.getmusic()
     console.log('music')
@@ -13,12 +13,20 @@ music.prototype = {
     bind:function(){
         var _this = this
         $('.icon-qianjin').on('click',function () {
+            _this.audio.autoplay = true
             _this.getmusic()
         })
 
         $('.icon-houtui').on('click',function () {
+            _this.audio.autoplay = true
             _this.getmusic()
         })
+
+        this.audio.onended = function(){
+            console.log('ended...')
+            _this.audio.autoplay = true
+            _this.getmusic()
+        }
 
 
         $('.song-status').on('click',function () {
@@ -43,7 +51,7 @@ music.prototype = {
             }
         }).done(function (ret) {
             console.log(ret)
-            if(ret.song[0].title ===null){
+            if(ret.song[0].title === null){
                 return _this.getmusic()
             }
             _this.setMusic(ret.song[0])
